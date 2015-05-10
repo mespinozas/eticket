@@ -1,0 +1,60 @@
+<html>
+    <head>
+	<meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <title>e-ticket</title>
+    </head>
+
+	<body>
+	<form>
+	<br>
+	<br>
+	<span>Nombre</span>
+      <br>
+	<input type="text" data-bind="value: name" required="required" pattern= "^[a-zA-Z]{3,}"/>
+	<br>
+	<span> Comuna </span>
+	<br>	
+	<input type="text" data-bind="value: direccion" required="required"/>
+	<br>
+	<span> Dirección </span>
+	<br>	
+	<input type="text" data-bind="value: direccion" required="required"/>
+	<br>
+	<span> Teléfono </span>
+	<br>
+	<input type="text" data-bind="value: phone" required="required"/>
+	<br>
+	<span> Mail </span>
+	<br>
+	<input type="email" data-bind="value: mail" required="required"/>
+	<br>
+	<span> Contraseña </span>
+	<br>
+	<input type="password" data-bind="value: password" required="required" pattern="^.{6,}" name="pwd1" onchange="form.pwd2.pattern = this.value;"/>
+	<br>
+	<span> Confirmar contraseña </span>
+	<br>
+	<input type="password" data-bind="value: password" required="required" name="pwd2"/>
+	<br>
+	<br>
+	<br>
+	<button type="submit" data-bind="click: registro" > Registrarse</button>
+
+
+
+
+
+</body>
+
+<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+
+
+
+</html>
