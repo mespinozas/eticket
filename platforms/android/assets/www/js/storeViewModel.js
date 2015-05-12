@@ -1,6 +1,15 @@
 'use strict';
+var resultDiv;
+var resultUrl;
 
-var storesViewModel = function(){
+document.addEventListener("deviceready", init, false);
+function init() {
+	document.querySelector("#startScan").addEventListener("touchend", startScan, false);
+	resultDiv = document.querySelector("#results");
+  resultUrl = document.querySelector("#url");
+}
+
+var StoreViewModel = function(){
 
   var self = this;
 
@@ -9,7 +18,8 @@ var storesViewModel = function(){
   self.lat = ko.observable();
   self.lon = ko.observable();
   self.address = ko.observable();
-
+  self._id = ko.observable();
+  self.stores = ko.observableArray();
   //Behaviour
   self.isEditMode = ko.observable(false);
   self.isCreateMode = ko.observable(false);
@@ -32,10 +42,36 @@ var storesViewModel = function(){
     self.getAll();
   };
 
+
+
+  self.ajax = function(uri, method, data) {
+      var request = {
+          url: uri,
+          type: method,
+          contentType: "application/json",
+          accepts: "application/json",
+          cache: false,
+          dataType: 'json',
+          data: JSON.stringify(data),
+          beforeSend: function (xhr) {
+              xhr.setRequestHeader("Authorization",
+                  "Basic " + btoa(self.username + ":" + self.password));
+          },
+          success: function(data){
+              console.log(data);
+              self = JSON.parse(data);
+          },
+          error: function(jqXHR) {
+              console.log("ajax error " + jqXHR.status);
+          }
+      };
+      return $.ajax(request);
+  }
+
   self.getAll = function(){
-    var url = 'http://etickettest-mespinozas.rhcloud.com:8000/api/products/';
+    var uri = 'http://etickettest-mespinozas.rhcloud.com:8000/api/products/';
     $.ajax({
-        url: 	url,
+        url: 	uri,
         type: 	'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -50,16 +86,25 @@ var storesViewModel = function(){
     });
   };
 
-  self.get = function(id){
-    var url = 'http://etickettest-mespinozas.rhcloud.com:8000/api/products/'+id;
+  self.get = function(url){
+    self.ajax(url, 'GET');
+  };
+
+  self.getStoreById = function(url){
+    alert('Reading');
+    //var url = 'http://etickettest-mespinozas.rhcloud.com:8000/api/products/'+id;
     $.ajax({
         url: 	url,
         type: 	'GET',
         dataType: 'json',
-        contentType: 'application/json; charset=utf-8',
+        //data: id;
+        //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
         success: function(data){
             console.log(data);
-            self.productList(data);
+            alert('Reading Before Data');
+            self = JSON.parse(data);
+            alert('Reading Data');
         },
         error: function(xhr, type){
             console.error(xhr);
@@ -68,3 +113,25 @@ var storesViewModel = function(){
     });
   };
 };
+
+ko.applyBindings(new StoreViewModel(), $('#storeInfo')[0]);
+
+function startScan() {
+
+	cordova.plugins.barcodeScanner.scan(
+		function (result) {
+			var s = "Result: " + result.text + "<br/>" +
+			"Format: " + result.format + "<br/>" +
+			"Cancelled: " + result.cancelled;
+			resultDiv.innerHTML = s;
+      resultUrl.value=result.text;
+      alert('Reading Before');
+      var svm = new StoreViewModel();
+      svm.get(result.text);
+      alert('Reading After');
+		},
+		function (error) {
+			alert("Scanning failed: " + error);
+		}
+	);
+}

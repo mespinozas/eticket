@@ -7,21 +7,15 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>e-ticket</title>
+    <title>eTicket</title>
   </head>
   <body>
-    <form>
-      <br>
-      <br>
-      <span> Ingresar código sucursal </span>
-      <br>
-      <input type="text" data-bind="value: sucursal" required/>
-      <br>
-      <br>
-      <br>
-      <button type="submit" data-bind="click: ingresarsucursal" > Ingresar</button>
-    </form>
+    <p>
+      <button id="startScan">Start Scan</button>
+    </p>
+    <div id="results"></div>
   </body>
   <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/productViewModel.js"></script>
+  <script type="text/javascript" src="js/barcodeDecoder.js"></script>
 </html>
