@@ -10,18 +10,12 @@
     <title>e-ticket</title>
   </head>
   <body>
-    <form>
-      <br>
-      <br>
-      <span> Ingresar código sucursal </span>
-      <br>
-      <input type="text" data-bind="value: sucursal" required/>
-      <br>
-      <br>
-      <br>
-      <button type="submit" data-bind="click: ingresarsucursal" > Ingresar</button>
-    </form>
+    <p>
+      <button id="startScan">Start Scan</button>
+    </p>
+    <div id="results"></div>
   </body>
   <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/storeViewModel.js"></script>
+  <script type="text/javascript" src="js/barcodeDecoder.js"></script>
 </html>
