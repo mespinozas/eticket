@@ -34,7 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 	  var cl = new ClientViewModel();
-	  ko.applyBindings(cl, $('#main-wrapper')[0]);
+	  ko.applyBindings(cl, $('#main-content')[0]);
        // app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
