@@ -31,11 +31,11 @@
         <div data-bind="visible: isListVisible">
           <p class="content-padded">Lista Productos:</p>
 
-          <div data-bind="foreach: productList" class="card">
+          <div data-bind="foreach: _productList" class="card">
             <ul class="table-view">
               <li class="table-view-cell">
                 <a class="navigate-right" data-bind="click: $parent.showEdit">
-                  <span data-bind="text: name"></span>
+                  <span data-bind="text: _name"></span>
                 </a>
               </li>
             </ul>

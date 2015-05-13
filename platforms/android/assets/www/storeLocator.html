@@ -10,26 +10,32 @@
     <title>e-Ticket</title>
   </head>
   <body>
-    <br>
-    <br>
-    <p>
-      <button id="startScan">Escanear Codigo</button>
-    </p>
+    <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left" data-bind="visible: isCreateAndEditVisible, click: showList"></a>
 
-    <div id="storeInfo">
-      <div id="results"></div>
-      <input type="text" id="url" onchange="showList" />
-      <!--div data-bind="foreach: storeList" class="card">
-        <ul class="table-view">
-          <li class="table-view-cell">
-            <span data-bind="text: name"></span>
-          </li>
-        </ul>
-      </div-->''
-      <span>Tienda</span><input type="text" data-bind="value: (name === undefined)?'undfined':'Tienda'" />
-      <span>Latitud</span><input type="text" data-bind="value: (lat === undefined)?'undfined':'Lat'"  />
-      <span>Longitud</span><input type="text" data-bind="value: (lon === undefined)?'undfined':'Lon'" />
-      <span>Direccion</span><input type="text" data-bind="value: (address === undefined)?'undfined':'Direccion'"/>
+      <h1 class="title">Buscador de Tiendas</h1>
+    </header>
+    <div>
+      <br/>
+      <br/>
+      <center>
+        <button id="startScan">Escanear Codigo</button>
+      </center>
+      <div id="storeInfo">
+        <!--<div id="results"></div>
+        <input type="text" id="url" onchange="showList" />
+        div data-bind="foreach: storeList" class="card">
+          <ul class="table-view">
+            <li class="table-view-cell">
+              <span data-bind="text: name"></span>
+            </li>
+          </ul>
+        </div-->
+        <span>Tienda</span><input id="name" type="text" data-bind="value: (_name === undefined)?'undefined':'Tienda'" />
+        <span>Latitud</span><input id="lat" type="text" data-bind="value: (_lat === undefined)?'undefined':'Lat'"  />
+        <span>Longitud</span><input id="lon" type="text" data-bind="value: (_lon === undefined)?'undefined':'Lon'" />
+        <span>Direccion</span><input id="address" type="text" data-bind="value: (_address === undefined)?'undefined':'Direccion'"/>
+      </div>
     </div>
   </body>
   <script type="text/javascript" src="cordova.js"></script>

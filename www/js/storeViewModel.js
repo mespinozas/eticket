@@ -1,58 +1,37 @@
 'use strict';
 var resultDiv;
 var resultUrl;
+var resultName;
+var resultLat;
+var resultLon;
+var resultAddress;
 
 document.addEventListener("deviceready", init, false);
 
 function init() {
 	document.querySelector("#startScan").addEventListener("touchend", startScan, false);
 	resultDiv = document.querySelector("#results");
-  resultUrl = document.querySelector("#url");
+  //resultUrl = document.querySelector("#url");
+	resultName = document.querySelector("#name");
+	resultLat = document.querySelector("#lat");
+	resultLon = document.querySelector("#lon");
+	resultAddress = document.querySelector("#address");
 };
 
 var StoreViewModel = function(){
   var self = this;
 
-  self._name = ko.observable('undefined');
-  self._lat = ko.observable();
-  self._lon = ko.observable();
-  self._address = ko.observable('');
-
+	self._name = ko.observable();
+	self._lat = ko.observable();
+	self._lon = ko.observable();
+	self._address = ko.observable();
+	self._storeList = ko.observableArray();
 	self._id = ko.observable();
+	//self._isEditMode = ko.observable(false);
+	//self._isCreateMode = ko.observable(false);
 
-	self.storeList = ko.observableArray();
-  //Behaviour
-
-	self.isEditMode = ko.observable(false);
-  self.isCreateMode = ko.observable(false);
-
-
-  self.showList = function(){
-    self.getAll();
-  };
-
-  self.ajax = function(uri, method, data) {
-      var request = {
-          url: uri,
-          type: method,
-          contentType: "application/json",
-          accepts: "application/json",
-          cache: false,
-          dataType: 'json',
-          data: JSON.stringify(data),
-          beforeSend: function (xhr) {
-              xhr.setRequestHeader("Authorization",
-                  "Basic " + btoa(self.username + ":" + self.password));
-          },
-          success: function(data){
-              console.log(data);
-              self = JSON.parse(data);
-          },
-          error: function(jqXHR) {
-              console.log("ajax error " + jqXHR.status);
-          }
-      };
-      return $.ajax(request);
+	self.showList = function(){
+		self.getAll();
   };
 
   self.getAll = function(uri){
@@ -65,7 +44,7 @@ var StoreViewModel = function(){
         contentType: 'application/json; charset=utf-8',
         success: function(data){
             alert('Take');
-            self.storeList(data);
+						self.storeList(data);
 						alert('Collect');
         },
         error: function(xhr, type){
@@ -76,7 +55,7 @@ var StoreViewModel = function(){
     });
   };
 
-  self.get = function(uri){
+  /*self.get = function(uri){
 		//var uri = 'http://etickettest-mespinozas.rhcloud.com:8000/api/products/';
     $.ajax({
         url: 	uri,
@@ -85,19 +64,16 @@ var StoreViewModel = function(){
         contentType: 'application/json; charset=utf-8',
         success: function(data){
             console.log(data);
-            self =JSON.parse(data);
+						this =JSON.parse(data);
         },
         error: function(xhr, type){
             console.error(xhr);
             console.error(type);
         }
     });
-  };
-	self.save = function(){
-    alert('hello');
-  };
+  };*/
 
-  self.getStoreById = function(id){
+	this.getStoreById = function(id){
     var uri = 'http://etickettest-mespinozas.rhcloud.com/api/stores/'+id;
 
     $.ajax({
@@ -110,12 +86,17 @@ var StoreViewModel = function(){
 						//alert('Reading Before Data');
 						console.log(data);
             //alert('Reading Before Data');
-            self._name(data._name);
-						self.lat(data._lat);
-						self.lon(data._lon);
-						self.address(data._address);
+						//self._name(data._name);
+						//self._lat(data._lat);
+						//self._lon(data._lon);
+						//self._address(data._address);
+
+						resultName.value=data._name;
+						resultLat.value=data._lat;
+						resultLon.value=data._lon;
+						resultAddress.value=data._address;
 						//self._id(data._id);
-            alert('Reading Data Done');
+            //alert('Reading Data Done');
         },
         error: function(xhr, type){
 						//alert(xhr);
@@ -134,18 +115,18 @@ function startScan() {
 
 	cordova.plugins.barcodeScanner.scan(
 		function (result) {
-			var s = "Result: " + result.text + "<br/>" +
-			"Format: " + result.format + "<br/>" +
-			"Cancelled: " + result.cancelled;
-			resultDiv.innerHTML = s;
-      resultUrl.value=result.text;
-      alert('Reading Before');
+			//var s = "Result: " + result.text + "<br/>" +
+			//"Format: " + result.format + "<br/>" +
+			//"Cancelled: " + result.cancelled;
+			//resultDiv.innerHTML = s;
+      //resultUrl.value=result.text;
+      //alert('Reading Before');
 			//esto no lo hace
       var svm = new StoreViewModel();
-			alert('Reading Before Get All');
+			//alert('Reading Before Get All');
 			//svm.save();
       svm.getStoreById(result.text);
-      alert('Reading After');
+      //alert('Reading After');
 		},
 		function (error) {
 			alert("Scanning failed: " + error);

@@ -5,11 +5,12 @@ var addressViewModel = function(){
   var self = this;
 
   //Domain data
-  self.line1 = ko.observable();
-  self.line2 = ko.observable();
-  self.county = ko.observable();
-  self.city = ko.observable();
-  self.region = ko.observable();
+  self._line1 = ko.observable();
+  self._line2 = ko.observable();
+  self._county = ko.observable();
+  self._city = ko.observable();
+  self._region = ko.observable();
+  self._addressList = ko.observableArray();
 
   //Behaviour
   self.isEditMode = ko.observable(false);
@@ -55,7 +56,7 @@ var addressViewModel = function(){
         contentType: 'application/json; charset=utf-8',
         success: function(data){
             console.log(data);
-            self.productList(data);
+            self.addressList(data);
         },
         error: function(xhr, type){
             console.error(xhr);
