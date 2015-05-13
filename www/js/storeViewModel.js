@@ -13,10 +13,10 @@ function init() {
 var StoreViewModel = function(){
   var self = this;
 
-  self.name = ko.observable('undefined');
-  self.lat = ko.observable();
-  self.lon = ko.observable();
-  self.address = ko.observable('');
+  self._name = ko.observable('undefined');
+  self._lat = ko.observable();
+  self._lon = ko.observable();
+  self._address = ko.observable('');
 
 	self._id = ko.observable();
 
@@ -110,10 +110,10 @@ var StoreViewModel = function(){
 						//alert('Reading Before Data');
 						console.log(data);
             //alert('Reading Before Data');
-            self.name(data.name);
-						self.lat(data.lat);
-						self.lon(data.lon);
-						self.address(data.address);
+            self._name(data._name);
+						self.lat(data._lat);
+						self.lon(data._lon);
+						self.address(data._address);
 						//self._id(data._id);
             alert('Reading Data Done');
         },

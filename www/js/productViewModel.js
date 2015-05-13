@@ -5,9 +5,9 @@ var ProductViewModel = function(){
   var self = this;
 	//document.addEventListener("deviceready", getAll, false);
   //Domain data
-  self.name = ko.observable();
-  self.price = ko.observable();
-  self.productList = ko.observableArray();
+  self._name = ko.observable();
+  self._price = ko.observable();
+  self._productList = ko.observableArray();
 
   //Behaviour
   self.isEditMode = ko.observable(false);
@@ -52,7 +52,7 @@ var ProductViewModel = function(){
         contentType: 'application/json; charset=utf-8',
         success: function(data){
             console.log(data);
-            self.productList(data);
+            self._productList(data);
         },
         error: function(xhr, type){
             console.error(xhr);

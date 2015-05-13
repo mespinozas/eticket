@@ -14,11 +14,11 @@
 	   <form>
        <span> Mail </span>
        <br></br>
-	     <input type="email" data-bind="value: mail" required="required"/>
+	     <input type="email" data-bind="value: _mail" required="required"/>
        <br></br>
        <span> Contraseña </span>
        <br></br>
-	     <input type="password" data-bind="value: password" required="required" pattern= "{6,}" />
+	     <input type="password" data-bind="value: _password" required="required" pattern= "{6,}" />
        <br></br>
        <button type="submit" data-bind="click: iniciosesion" > Iniciar sesión</button>
     </form>

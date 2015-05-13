@@ -4,12 +4,12 @@ var ClientViewModel = function (){
 
 	var self = this;
 
-	self.name = ko.observable();
-	self.lname1 = ko.observable();
-	self.lname2 = ko.observable();
-	self.phone = ko.observable();
-	self.mail = ko.observable();
-	self.password = ko.observable();
+	self._name = ko.observable();
+	self._lname1 = ko.observable();
+	self._lname2 = ko.observable();
+	self._phone = ko.observable();
+	self._mail = ko.observable();
+	self._password = ko.observable();
 
 	/*self.Create function () {
 

@@ -12,31 +12,31 @@
       <br></br>
       <span>Nombre</span>
       <br>
-      <input type="text" data-bind="value: name" required="required" pattern= "^[a-zA-Z]{3,}"/>
+      <input type="text" data-bind="value: _name" required="required" pattern= "^[a-zA-Z]{3,}"/>
       <br>
       <span> Apellido Paterno </span>
       <br>
-      <input type="text" data-bind="value: lname1" required="required" pattern= "^[a-zA-Z]{3,}"/>
+      <input type="text" data-bind="value: _lname1" required="required" pattern= "^[a-zA-Z]{3,}"/>
       <br>
       <span> Apellido Materno </span>
       <br>
-      <input type="text" data-bind="value: lname2" required="required" pattern= "^[a-zA-Z]{3,}"/>
+      <input type="text" data-bind="value: _lname2" required="required" pattern= "^[a-zA-Z]{3,}"/>
       <br>
       <span> Teléfono </span>
       <br>
-      <input type="text" data-bind="value: phone" required="required"/>
+      <input type="text" data-bind="value: _phone" required="required"/>
       <br>
       <span> Mail </span>
       <br>
-      <input type="email" data-bind="value: mail" required="required"/>
+      <input type="email" data-bind="value: _mail" required="required"/>
       <br>
       <span> Contraseña </span>
       <br>
-      <input type="password" data-bind="value: password" required="required" pattern="^.{6,}" name="pwd1" onchange="form.pwd2.pattern = this.value;"/>
+      <input type="password" data-bind="value: _password" required="required" pattern="^.{6,}" name="pwd1" onchange="form.pwd2.pattern = this.value;"/>
       <br>
       <span> Confirmar contraseña </span>
       <br>
-      <input type="password" data-bind="value: password" required="required" name="pwd2"/>
+      <input type="password" required="required" name="pwd2"/>
       <br>
       <button data-bind="click: save" > Registrarse</button>
     </form>
