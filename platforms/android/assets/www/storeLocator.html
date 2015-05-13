@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;connect-src http://etickettest-mespinozas.rhcloud.com/api/stores/ 'unsafe-inline'">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -19,17 +19,17 @@
     <div id="storeInfo">
       <div id="results"></div>
       <input type="text" id="url" onchange="showList" />
-      <div data-bind="foreach: storeList" class="card">
+      <!--div data-bind="foreach: storeList" class="card">
         <ul class="table-view">
           <li class="table-view-cell">
             <span data-bind="text: name"></span>
           </li>
         </ul>
-      </div>
-      <!--input type="text" data-bind="value: name" />
-      <input type="text" data-bind="value: lat" />
-      <input type="text" data-bind="value: lon" />
-      <input type="text" data-bind="value: address" /-->
+      </div-->''
+      <span>Tienda</span><input type="text" data-bind="value: (name === undefined)?'undfined':'Tienda'" />
+      <span>Latitud</span><input type="text" data-bind="value: (lat === undefined)?'undfined':'Lat'"  />
+      <span>Longitud</span><input type="text" data-bind="value: (lon === undefined)?'undfined':'Lon'" />
+      <span>Direccion</span><input type="text" data-bind="value: (address === undefined)?'undfined':'Direccion'"/>
     </div>
   </body>
   <script type="text/javascript" src="cordova.js"></script>

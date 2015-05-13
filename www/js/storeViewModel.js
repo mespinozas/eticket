@@ -13,10 +13,10 @@ function init() {
 var StoreViewModel = function(){
   var self = this;
 
-  self.name = ko.observable();
+  self.name = ko.observable('undefined');
   self.lat = ko.observable();
   self.lon = ko.observable();
-  self.address = ko.observable();
+  self.address = ko.observable('');
 
 	self._id = ko.observable();
 
@@ -30,7 +30,6 @@ var StoreViewModel = function(){
   self.showList = function(){
     self.getAll();
   };
-
 
   self.ajax = function(uri, method, data) {
       var request = {
@@ -99,38 +98,36 @@ var StoreViewModel = function(){
   };
 
   self.getStoreById = function(id){
-    alert('Reading');
-    var uri = 'http://etickettest-mespinozas.rhcloud.com/api/stores/';
-		alert(uri);
+    var uri = 'http://etickettest-mespinozas.rhcloud.com/api/stores/'+id;
+
     $.ajax({
         url: 	uri,
         type: 'GET',
-        dataType: 'x-www-form-urlencoded',
-        data: '_id="'+id+'"',
+        dataType: 'json',
         //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        contentType: 'application/json; charset=utf-8',
         success: function(data){
-						alert('Reading Before Data');
-						//console.log(data);
-            alert('Reading Before Data');
+						//alert('Reading Before Data');
+						console.log(data);
+            //alert('Reading Before Data');
             self.name(data.name);
 						self.lat(data.lat);
 						self.lon(data.lon);
 						self.address(data.address);
-						self._id(data._id);
-            alert('Reading Data');
+						//self._id(data._id);
+            alert('Reading Data Done');
         },
         error: function(xhr, type){
-						alert(xhr);
+						//alert(xhr);
 						console.error(xhr);
-						alert(type);
+						//alert(type);
             console.error(type);
 						//alert('Reading Error');
         }
     });
   };
 };
-
+ko.applyBindings(StoreViewModel);
 //ko.applyBindings(new StoreViewModel(), $('#storeInfo')[0]);
 
 function startScan() {

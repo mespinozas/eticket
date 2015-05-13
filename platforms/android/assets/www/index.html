@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;connect-src http://etickettest-mespinozas.rhcloud.com">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -20,13 +20,13 @@
       <center>
       <h1>eTicket</h1>
       <br></br>
-      <form action="registro.html" method="post">
+      <form action="clientRegister.html" method="post">
 
           <button type="submit">Registrarse</button>
 
       </form>
       <br></br>
-      <form action="iniciar_sesion.html" method="post">
+      <form action="clientLogin.html" method="post">
         <button type="submit">Iniciar sesión</button>
       </form>
       <br></br>

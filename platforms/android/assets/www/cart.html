@@ -9,19 +9,26 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>e-ticket</title>
   </head>
-  <body>
+	<body>
     <form>
       <br>
+	    <br>
+      <hr/>
+	    <br>
+	    <br>
+	    <span> Ingresar código producto</span>
+	    <br>
+	    <input type="text" data-bind="value: producto" required/>
+	    <br>
+	    <br>
+	    <br>
+	    <button type="submit" data-bind="click: agregarproducto" > Agregar</button>
+	    <hr/>
+	    <br>
       <br>
-      <span> Ingresar código sucursal </span>
-      <br>
-      <input type="text" data-bind="value: sucursal" required/>
-      <br>
-      <br>
-      <br>
-      <button type="submit" data-bind="click: ingresarsucursal" > Ingresar</button>
+	    <span> Total : </span>
     </form>
-  </body>
+	</body>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 </html>
