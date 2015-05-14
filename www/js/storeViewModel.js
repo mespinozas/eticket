@@ -18,15 +18,32 @@ function init() {
 	resultAddress = document.querySelector("#address");
 };
 
-var StoreViewModel = function(){
-  var self = this;
+ko.extenders.defaultIfNull = function(target, defaultValue) {
+    var result = ko.computed({
+        read: target,
+        write: function(newValue) {
+            if (!newValue) {
+                target(defaultValue);
+            } else {
+                target(newValue);
+            }
+        }
+    });
 
-	self._name = ko.observable();
-	self._lat = ko.observable();
-	self._lon = ko.observable();
-	self._address = ko.observable();
+    result(target());
+
+    return result;
+};
+
+var StoreViewModel = function(){
+ 	var self = this;
+
+	self._name = ko.observable().extend({ defaultIfNull: "Store" });;
+	self._lat = ko.observable().extend({ defaultIfNull: 0 });;
+	self._lon = ko.observable().extend({ defaultIfNull: 0 });;
+	self._address = ko.observable().extend({ defaultIfNull: "Address" });;
 	self._storeList = ko.observableArray();
-	self._id = ko.observable();
+	self._id = ko.observable().extend({ defaultIfNull: 0 });;
 	//self._isEditMode = ko.observable(false);
 	//self._isCreateMode = ko.observable(false);
 
@@ -108,11 +125,10 @@ var StoreViewModel = function(){
     });
   };
 };
-ko.applyBindings(StoreViewModel);
+ko.applyBindings(new StoreViewModel());
 //ko.applyBindings(new StoreViewModel(), $('#storeInfo')[0]);
 
 function startScan() {
-
 	cordova.plugins.barcodeScanner.scan(
 		function (result) {
 			//var s = "Result: " + result.text + "<br/>" +

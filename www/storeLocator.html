@@ -11,36 +11,27 @@
   </head>
   <body>
     <header class="bar bar-nav">
-      <a class="icon icon-left-nav pull-left" data-bind="visible: isCreateAndEditVisible, click: showList"></a>
+      <a class="icon icon-left-nav pull-left" href="index.html"></a>
       <h1 class="title">Login Tienda</h1>
     </header>
-    <div>
-      <br/>
-      <br/>
-      <br/>
-      <center>
-        <button id="startScan">Escanear Codigo</button>
-      </center>
-      <div id="storeInfo">
-        <!--<div id="results"></div>
-        <input type="text" id="url" onchange="showList" />
-        div data-bind="foreach: storeList" class="card">
-          <ul class="table-view">
-            <li class="table-view-cell">
-              <span data-bind="text: name"></span>
-            </li>
-          </ul>
-        </div-->
-        <span>Tienda</span><input id="name" type="text" data-bind="value: (_name === undefined)?'undefined':'Tienda'" />
-        <span>Latitud</span><input id="lat" type="text" data-bind="value: (_lat === undefined)?'undefined':'Lat'"  />
-        <span>Longitud</span><input id="lon" type="text" data-bind="value: (_lon === undefined)?'undefined':'Lon'" />
-        <span>Direccion</span><input id="address" type="text" data-bind="value: (_address === undefined)?'undefined':'Direccion'"/>
-      </div>
-    </div>
-  </body>
-  <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
-  <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-  <script type="text/javascript" src="js/storeViewModel.js"></script>
+        <div>
+            <br/>
+            <br/>
+            <br/>
+            <center>
+                <button id="startScan">Escanear Codigo</button>
+            </center>
+            <div id="storeInfo">
+                <span>Tienda</span><input id="name" type="text" data-bind="value: (_name === undefined)?'undefined':'Tienda'" />
+                <span>Latitud</span><input id="lat" type="text" data-bind="value: (_lat === undefined)?'undefined':'Lat'"  />
+                <span>Longitud</span><input id="lon" type="text" data-bind="value: (_lon === undefined)?'undefined':'Lon'" />
+                <span>Direccion</span><input id="address" type="text" data-bind="value: (_address === undefined)?'undefined':'Direccion'"/>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/storeViewModel.js"></script>
   <!--script type="text/javascript" src="js/barcodeDecoder.js"></script-->
 </html>
