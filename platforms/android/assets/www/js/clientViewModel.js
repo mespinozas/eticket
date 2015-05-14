@@ -1,10 +1,11 @@
 'use strict';
 
+
 var ClientViewModel = function (){
 	
 	var self = this;
 
-	self.name = ko.observable();
+	self.name = ko.observable().extend({ min: 3 });
 	self.lname1 = ko.observable();
 	self.lname2 = ko.observable();
 	self.phone = ko.observable();
@@ -34,6 +35,8 @@ var ClientViewModel = function (){
 
 	self.save = function(){
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
+
+
 		$.ajax({
 
 			  url: 	url,
@@ -43,7 +46,7 @@ var ClientViewModel = function (){
                     processData: false,
                     contentType: "application/json; charset=utf-8",
 			  success: function(data){
-				//alert('Datos ingresados exitosamente');
+				alert('Usuario creado con éxito');
 			  },
 			  error:function(jqXHR, textStatus, errorThrown){
                        alert(textStatus);

@@ -9,7 +9,7 @@
     </head>
 
 	<body id="main-wrapper">
-	<form>
+	<form action="index.html" method="post">
 	<br>
 	<br>
 	<span>Nombre</span>
@@ -36,19 +36,19 @@
 	<br>
 	<input type="password" data-bind="value: password" required="required" pattern="^.{6,}" name="pwd1" onchange="form.pwd2.pattern = this.value;"/>
 	<br>
-			<span> Confirmar contraseña </span>
-			<br>
-			<input type="password" data-bind="value: password" required="required" name="pwd2"/>
-			<br>
-			<br>
-			<br>
-			<button data-bind="click: save" > Registrarse</button>
+	<span> Confirmar contraseña </span>
+	<br>
+	<input type="password" data-bind="value: password" required="required" name="pwd2"/>
+	<br>
+	<br>
+	<br>
+	<button data-bind="click: save" > Registrarse</button>
 	
 
 
 
 
-
+</form>
 </body>
 
 	<script type="text/javascript" src="cordova.js"></script>
@@ -56,7 +56,8 @@
 	<script type="text/javascript" src="js/clientViewModel.js"></script>
 	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript" src="js/knockout-3.3.0.js"></script>
-	
+	<script type="text/javascript" src ="js/knockout-validation.js"></script>
+      <script type="text/javascript" src ="js/es-ES.js"> </script>
 
 
 

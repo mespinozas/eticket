@@ -1,5 +1,6 @@
 'use strict';
 
+
 var ClientViewModel = function (){
 	
 	var self = this;
@@ -34,6 +35,8 @@ var ClientViewModel = function (){
 
 	self.save = function(){
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
+
+
 		$.ajax({
 
 			  url: 	url,
@@ -43,7 +46,7 @@ var ClientViewModel = function (){
                     processData: false,
                     contentType: "application/json; charset=utf-8",
 			  success: function(data){
-				//alert('Datos ingresados exitosamente');
+				alert('Usuario creado con éxito');
 			  },
 			  error:function(jqXHR, textStatus, errorThrown){
                        alert(textStatus);
@@ -52,4 +55,16 @@ var ClientViewModel = function (){
 		});
     		//alert('hello');
   	};
+
+	self.startSesion = function() {
+		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
+		
+		$.ajax({
+
+			url:	url,
+			type: 'GET',
+			datatype: "json",
+			processData: false,
+			contentType: "aplication/json; charset=utf-8",
+	}
 };

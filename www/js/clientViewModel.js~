@@ -1,5 +1,6 @@
 'use strict';
 
+
 var ClientViewModel = function (){
 	
 	var self = this;
@@ -34,13 +35,18 @@ var ClientViewModel = function (){
 
 	self.save = function(){
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
+
+
 		$.ajax({
 
 			  url: 	url,
 			  type: 	'POST',
 			  data: ko.toJSON(self),
+			  datatype: "json",
+                    processData: false,
+                    contentType: "application/json; charset=utf-8",
 			  success: function(data){
-				//alert('Datos ingresados exitosamente');
+				alert('Usuario creado con éxito');
 			  },
 			  error:function(jqXHR, textStatus, errorThrown){
                        alert(textStatus);
