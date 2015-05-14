@@ -1,4 +1,9 @@
 'use strict';
+
+var resultName;
+var resultCode;
+var resultPrice;
+
 document.addEventListener("deviceready", init, false);
 
 ko.extenders.defaultIfNull = function(target, defaultValue) {
@@ -26,7 +31,7 @@ var ProductViewModel = function(){
   self._name = ko.observable().extend({ defaultIfNull: "Store" });
   self._price = ko.observable().extend({ defaultIfNull: "Store" });
   self._code = ko.observable().extend({ defaultIfNull: "Store" });
-  self._productList = ko.observableArray().extend({ defaultIfNull: {} });
+  self._productList = ko.observableArray();
 
   //Behaviour
   self.isEditMode = ko.observable(false);
@@ -84,4 +89,64 @@ var ProductViewModel = function(){
   self.save = function(){
     alert('hello');
   };
+
+  this.getProductByCode = function(code){
+  var uri = 'http://etickettest-mespinozas.rhcloud.com/api/products/'+code;
+
+  $.ajax({
+      url: 	uri,
+      type: 'GET',
+      dataType: 'json',
+      //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+      contentType: 'application/json; charset=utf-8',
+      success: function(data){
+                      //alert('Reading Before Data');
+                      console.log(data);
+          //alert('Reading Before Data');
+                      //self._name(data._name);
+                      //self._lat(data._lat);
+                      //self._lon(data._lon);
+                      //self._address(data._address);
+
+                      resultName.value=data._name;
+                      resultPrice.value=data._price;
+                      resultCode.value=data._code;
+                      //resultAddress.value=data._address;
+                      //self._id(data._id);
+          //alert('Reading Data Done');
+      },
+      error: function(xhr, type){
+                      alert('Producto No Encontrado');
+                      console.error(xhr);
+                      //alert(type);
+          console.error(type);
+                      //alert('Reading Error');
+      }
+  });
 };
+
+ko.applyBindings(new ProductViewModel());
+
+function init() {
+    var pvm=new ProductViewModel();
+    pvm.getAll();
+
+    document.querySelector("#startScanProducts").addEventListener("touchend", startScanProducts, false);
+	resultCode = document.querySelector("#code");
+  //resultUrl = document.querySelector("#url");
+	resultName = document.querySelector("#name");
+	resultPrice = document.querySelector("#price");
+
+}
+
+function startScanProducts() {
+	cordova.plugins.barcodeScanner.scan(
+		function (result) {
+			var svm = new ProductViewModel();
+            svm.getProductByCode(result.text);
+		},
+		function (error) {
+			alert("Scanning failed: " + error);
+		}
+	);
+}

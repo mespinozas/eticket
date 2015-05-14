@@ -116,7 +116,7 @@ var StoreViewModel = function(){
             //alert('Reading Data Done');
         },
         error: function(xhr, type){
-						//alert(xhr);
+						alert('Tienda No Encontrada');
 						console.error(xhr);
 						//alert(type);
             console.error(type);

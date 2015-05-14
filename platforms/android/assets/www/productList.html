@@ -19,8 +19,7 @@
   <body id="main-wrapper">
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <a class="icon icon-left-nav pull-left" data-bind="visible: isCreateAndEditVisible, click: showList"></a>
-      <a class="icon icon-compose pull-right" data-bind="visible: isListVisible, click: showCreate"></a>
+      <a class="icon icon-left-nav pull-left" href="index.html"</a>
       <h1 class="title">Administrador de Productos</h1>
     </header>
 
@@ -34,9 +33,8 @@
           <div data-bind="foreach: _productList" class="card">
             <ul class="table-view">
               <li class="table-view-cell">
-                <a class="navigate-right" data-bind="click: $parent.showEdit">
                   <span data-bind="text: _name"></span>
-                </a>
+                  <span data-bind="text: _price"></span>
               </li>
             </ul>
           </div>

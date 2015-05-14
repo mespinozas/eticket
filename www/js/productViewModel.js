@@ -31,7 +31,7 @@ var ProductViewModel = function(){
   self._name = ko.observable().extend({ defaultIfNull: "Store" });
   self._price = ko.observable().extend({ defaultIfNull: "Store" });
   self._code = ko.observable().extend({ defaultIfNull: "Store" });
-  self._productList = ko.observableArray().extend({ defaultIfNull: {} });
+  self._productList = ko.observableArray();
 
   //Behaviour
   self.isEditMode = ko.observable(false);
@@ -90,8 +90,8 @@ var ProductViewModel = function(){
     alert('hello');
   };
 
-  this.getProductById = function(id){
-  var uri = 'http://etickettest-mespinozas.rhcloud.com/api/product/'+id;
+  this.getProductByCode = function(code){
+  var uri = 'http://etickettest-mespinozas.rhcloud.com/api/products/'+code;
 
   $.ajax({
       url: 	uri,
@@ -130,13 +130,20 @@ ko.applyBindings(new ProductViewModel());
 function init() {
     var pvm=new ProductViewModel();
     pvm.getAll();
+
+    document.querySelector("#startScanProducts").addEventListener("touchend", startScanProducts, false);
+	resultCode = document.querySelector("#code");
+  //resultUrl = document.querySelector("#url");
+	resultName = document.querySelector("#name");
+	resultPrice = document.querySelector("#price");
+
 }
 
-function startScan() {
+function startScanProducts() {
 	cordova.plugins.barcodeScanner.scan(
 		function (result) {
-			var svm = new StoreViewModel();
-            svm.getProductById(result.text);
+			var svm = new ProductViewModel();
+            svm.getProductByCode(result.text);
 		},
 		function (error) {
 			alert("Scanning failed: " + error);
