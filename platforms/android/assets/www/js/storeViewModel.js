@@ -38,12 +38,12 @@ ko.extenders.defaultIfNull = function(target, defaultValue) {
 var StoreViewModel = function(){
  	var self = this;
 
-	self._name = ko.observable().extend({ defaultIfNull: "Store" });;
-	self._lat = ko.observable().extend({ defaultIfNull: 0 });;
-	self._lon = ko.observable().extend({ defaultIfNull: 0 });;
-	self._address = ko.observable().extend({ defaultIfNull: "Address" });;
+	self._name = ko.observable().extend({ defaultIfNull: "Store" });
+	self._lat = ko.observable().extend({ defaultIfNull: 0 });
+	self._lon = ko.observable().extend({ defaultIfNull: 0 });
+	self._address = ko.observable().extend({ defaultIfNull: "Address" });
 	self._storeList = ko.observableArray();
-	self._id = ko.observable().extend({ defaultIfNull: 0 });;
+	self._id = ko.observable().extend({ defaultIfNull: 0 });
 	//self._isEditMode = ko.observable(false);
 	//self._isCreateMode = ko.observable(false);
 

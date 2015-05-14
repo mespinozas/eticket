@@ -1,13 +1,32 @@
 'use strict';
 document.addEventListener("deviceready", init, false);
+
+ko.extenders.defaultIfNull = function(target, defaultValue) {
+    var result = ko.computed({
+        read: target,
+        write: function(newValue) {
+            if (!newValue) {
+                target(defaultValue);
+            } else {
+                target(newValue);
+            }
+        }
+    });
+
+    result(target());
+
+    return result;
+};
+
 var ProductViewModel = function(){
 
   var self = this;
 	//document.addEventListener("deviceready", getAll, false);
   //Domain data
-  self._name = ko.observable();
-  self._price = ko.observable();
-  self._productList = ko.observableArray();
+  self._name = ko.observable().extend({ defaultIfNull: "Store" });
+  self._price = ko.observable().extend({ defaultIfNull: "Store" });
+  self._code = ko.observable().extend({ defaultIfNull: "Store" });
+  self._productList = ko.observableArray().extend({ defaultIfNull: {} });
 
   //Behaviour
   self.isEditMode = ko.observable(false);
