@@ -1,16 +1,16 @@
 'use strict';
-var resultDiv;
-var resultUrl;
+
 var resultName;
 var resultLat;
 var resultLon;
 var resultAddress;
 
 document.addEventListener("deviceready", init, false);
+//window.addEventListener('push', init);
 
 function init() {
 	document.querySelector("#startScan").addEventListener("touchend", startScan, false);
-	resultDiv = document.querySelector("#results");
+
   //resultUrl = document.querySelector("#url");
 	resultName = document.querySelector("#name");
 	resultLat = document.querySelector("#lat");
@@ -131,18 +131,8 @@ ko.applyBindings(new StoreViewModel());
 function startScan() {
 	cordova.plugins.barcodeScanner.scan(
 		function (result) {
-			//var s = "Result: " + result.text + "<br/>" +
-			//"Format: " + result.format + "<br/>" +
-			//"Cancelled: " + result.cancelled;
-			//resultDiv.innerHTML = s;
-      //resultUrl.value=result.text;
-      //alert('Reading Before');
-			//esto no lo hace
-      var svm = new StoreViewModel();
-			//alert('Reading Before Get All');
-			//svm.save();
-      svm.getStoreById(result.text);
-      //alert('Reading After');
+			var svm = new StoreViewModel();
+      		svm.getStoreById(result.text);
 		},
 		function (error) {
 			alert("Scanning failed: " + error);

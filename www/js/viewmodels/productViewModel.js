@@ -1,9 +1,9 @@
-'use strict'
-
-var resultName;
+'use strict';
+var resultDiv;
 var resultCode;
 var resultPrice;
 
+window.addEventListener('push', init);
 document.addEventListener("deviceready", init, false);
 
 ko.extenders.defaultIfNull = function(target, defaultValue) {
@@ -27,7 +27,7 @@ function init() {
     //var pvm=new ProductViewModel();
     //pvm.getAll();
 
-    document.querySelector("#startScanProduct").addEventListener("touchend", startScanProducts, false);
+    document.querySelector("#startScanProducts").addEventListener("touchend", startScanProducts, false);
 	resultCode = document.querySelector("#code");
   //resultUrl = document.querySelector("#url");
 	resultName = document.querySelector("#name");

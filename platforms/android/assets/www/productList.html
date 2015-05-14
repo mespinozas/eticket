@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>e-Ticket</title>
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;connect-src http://etickettest-mespinozas.rhcloud.com/api/products/">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;connect-src http://etickettest-mespinozas.rhcloud.com/api/products/ 'unsafe-inline'">
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
 
@@ -20,26 +20,18 @@
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
       <a class="icon icon-left-nav pull-left" href="index.html"</a>
-      <h1 class="title">Administrador de Productos</h1>
+      <h1 class="title">Listado de Productos</h1>
     </header>
 
-    <div class="content">
-
-      <div id="crudProducts">
-        <!-- List -->
-        <div data-bind="visible: isListVisible">
-          <p class="content-padded">Lista Productos:</p>
-
-          <div data-bind="foreach: _productList" class="card">
+    <div class="content" id="productViewModel">
+        <div data-bind="foreach: _productList" class="card">
             <ul class="table-view">
               <li class="table-view-cell">
                   <span data-bind="text: _name"></span>
                   <span data-bind="text: _price"></span>
               </li>
             </ul>
-          </div>
-        </div>
-      </div> <!-- Crud Products -->
+        </div> <!-- Crud Products -->
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>

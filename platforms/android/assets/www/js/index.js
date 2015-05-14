@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+ window.addEventListener('push', checkPage);
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -53,3 +56,58 @@ var app = {
 
 
 app.initialize();
+
+var checkPage = function(){
+
+    var elm = document.getElementsByClassName("content")[0];
+    var script = elm.id;
+
+    if(script) {
+        $.getScript("js/"+elm.id+".js")
+        .done(function( script, textStatus ) {
+           console.log( textStatus );
+        })
+        .fail(function( jqxhr, statusText, errorThrown ) {
+            console.log(errorThrown);
+            console.log(statusText);
+            console.log(jqxhr);
+        });
+
+        $.getScript("js/ratchet.min.js")
+        .done(function( script, textStatus ) {
+           console.log( textStatus );
+        })
+        .fail(function( jqxhr, statusText, errorThrown ) {
+            console.log(errorThrown);
+            console.log(statusText);
+            console.log(jqxhr);
+        });
+        $.getScript("js/index.js")
+        .done(function( script, textStatus ) {
+           console.log( textStatus );
+        })
+        .fail(function( jqxhr, statusText, errorThrown ) {
+            console.log(errorThrown);
+            console.log(statusText);
+            console.log(jqxhr);
+        });
+        $.getScript("js/jquery-2.1.3.min.js")
+        .done(function( script, textStatus ) {
+           console.log( textStatus );
+        })
+        .fail(function( jqxhr, statusText, errorThrown ) {
+            console.log(errorThrown);
+            console.log(statusText);
+            console.log(jqxhr);
+        });
+        $.getScript("js/knockout-3.3.0.js")
+        .done(function( script, textStatus ) {
+           console.log( textStatus );
+        })
+        .fail(function( jqxhr, statusText, errorThrown ) {
+            console.log(errorThrown);
+            console.log(statusText);
+            console.log(jqxhr);
+        });
+    }
+};
