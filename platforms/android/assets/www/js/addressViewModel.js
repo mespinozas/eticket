@@ -1,88 +1,115 @@
 'use strict';
 
-var addressViewModel = function(){
+var resultName;
+var resultPrice;
+var resultCode;
+//var resultAddress;
 
-  var self = this;
+document.addEventListener("deviceready", init, false);
 
-  //Domain data
-  self._line1 = ko.observable();
-  self._line2 = ko.observable();
-  self._county = ko.observable();
-  self._city = ko.observable();
-  self._region = ko.observable();
-  self._addressList = ko.observableArray();
 
-  //Behaviour
-  self.isEditMode = ko.observable(false);
-  self.isCreateMode = ko.observable(false);
 
-  self.isCreateAndEditVisible = ko.computed(function(){
-    return self.isEditMode() || self.isCreateMode();
-  }, self);
+ko.extenders.defaultIfNull = function(target, defaultValue) {
+    var result = ko.computed({
+        read: target,
+        write: function(newValue) {
+            if (!newValue) {
+                target(defaultValue);
+            } else {
+                target(newValue);
+            }
+        }
+    });
 
-  self.isListVisible = ko.computed(function(){
-    return !self.isEditMode() && !self.isCreateMode();
-  }, self);
+    result(target());
 
-  self.isDeleteVisible = ko.computed(function(){
-    return self.isEditMode();
-  }, self);
+    return result;
+};
 
-  self.showList = function(){
-    self.isCreateMode(false);
-    self.isEditMode(false);
-    self.getAll();
+var ProductViewModel = function(){
+ 	var self = this;
+
+	self._name = ko.observable().extend({ defaultIfNull: "Store" });
+	self._price = ko.observable().extend({ defaultIfNull: 0 });
+	//self._code = ko.observable().extend({ defaultIfNull: 0 });
+	self._code = ko.observable().extend({ defaultIfNull: "Code" });
+	self._productList = ko.observableArray();
+	self._id = ko.observable().extend({ defaultIfNull: 0 });
+	//self._isEditMode = ko.observable(false);
+	//self._isCreateMode = ko.observable(false);
+
+	self.showList = function(){
+		self.getAll();
   };
 
-  self.showCreate = function(){
-    self.isCreateMode(true);
-    self.isEditMode(false);
-  };
-
-  self.showEdit = function(){
-    self.isCreateMode(false);
-    self.isEditMode(true);
-  };
-
-  self.getAll = function(){
-    var url = 'http://etickettest-mespinozas.rhcloud.com:8000/api/addresses/';
-    //var url = 'http://localhost:5000/api/products/';
-
+  self.getAll = function(client){
+    var url = 'http://etickettest-mespinozas.rhcloud.com/api/addresses/';
+		alert(url);
     $.ajax({
-
         url: 	url,
         type: 	'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
         success: function(data){
-            console.log(data);
-            self.addressList(data);
+            alert('Take');
+			self._productList(data);
         },
         error: function(xhr, type){
             console.error(xhr);
             console.error(type);
+			alert('Error');
         }
     });
   };
 
-
-  self.save = function(){
+	this.getAddressById = function(id){
+    var uri = 'http://etickettest-mespinozas.rhcloud.com/api/products/'+id;
     $.ajax({
-            url: "api/courses",
-            type: "post",
-            data: ko.toJSON(self),
-            contentType: "application/json",
-            success: function(data){
-                console.log(data);
-                //self.productList(data);
-                alert("success");
-             },
-             error:function(jqXHR, textStatus, errorThrown) {
-
-                console.error(xhr);
-                console.error(type);
-                alert("failure");
-             }
-       });
+        url: 	uri,
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function(data){
+			console.log(data);
+			resultName.value=data._name;
+			resultCode.value=data._code;
+			resultPrice.value=data._price;
+        },
+        error: function(xhr, type){
+			alert('Product Not Found');
+			console.error(xhr);
+            console.error(type);
+        }
+    });
   };
 };
+
+var vm = new AddressViewModel();
+ko.applyBindings(vm,$('#main-wrapper')[0]);
+
+function init() {
+	try {
+		document.querySelector("#startScanProducts").addEventListener("touchend", startScanProduct, false);
+	} catch (e) {
+		alert('Lista');
+	}
+
+	try {
+		document.querySelector("#loadAddress").addEventListener("touchend", loadProductList, false);
+	} catch (e) {
+		alert('Scan');
+	}
+  //resultUrl = document.querySelector("#url");
+	resultName = document.querySelector("#name");
+	resultPrice = document.querySelector("#price");
+	resultCode = document.querySelector("#code");
+	//resultAddress = document.querySelector("#address");
+};
+
+function startScanProduct() {
+	vm.getAddressById(result.text);
+}
+
+function loadProductList() {
+    vm.getAll();
+}
