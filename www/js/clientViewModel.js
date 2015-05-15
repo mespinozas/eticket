@@ -54,7 +54,6 @@ var ClientViewModel = function (){
         }
 		});
     		//alert('hello');
-//<<<<<<< HEAD
   	};
 
 	self.startSesion = function() {
@@ -63,20 +62,16 @@ var ClientViewModel = function (){
 
 			url:	url,
 			type: 'GET',
-			//data: "pepe taaaapiaaaaaa",
 			datatype: "json",
-			//processData: false,
 			contentType: "aplication/json; charset=utf-8",
 			success: function(data){
 				alert('Usuario encontrado');
 				alert(JSON.stringify(data));
 			},
 			error:function(jqXHR, textStatus, errorThrown){
-           			alert(textStatus);
+           alert(textStatus);
 			     alert(errorThrown);
 			}
-		});			
+		});
 	};
-//=======
-//>>>>>>> caab48a682ec495cbac5ef85b912edd34483f638
 };
