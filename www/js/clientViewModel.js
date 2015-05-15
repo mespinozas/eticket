@@ -11,7 +11,6 @@ var ClientViewModel = function (){
 	self._phone = ko.observable();
 	self._mail = ko.observable();
 	self._password = ko.observable();
-
 	/*self.Create function () {
 
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
@@ -54,29 +53,46 @@ var ClientViewModel = function (){
         }
 		});
     		//alert('hello');
-//<<<<<<< HEAD
   	};
-
 	self.startSesion = function() {
-		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients/'+ $("#mail").val() ;
+		var email = document.getElementById("mail").value;
+		var password = document.getElementById("pass").value;
+		var jsonPass = '{"_password":'+'"'+password+'"'+'}';
+		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients/'+ email ;
 		$.ajax({
 
 			url:	url,
 			type: 'GET',
-			//data: "pepe taaaapiaaaaaa",
 			datatype: "json",
-			//processData: false,
 			contentType: "aplication/json; charset=utf-8",
 			success: function(data){
-				alert('Usuario encontrado');
-				alert(JSON.stringify(data));
+				//alert('Usuario encontrado');
+				if(jsonPass === JSON.stringify(data, ['_password']))
+				{
+					alert("hola");
+					$("#loginOk")[0].submit(function(e){
+						e.preventDefault();
+						/*$.ajax({
+
+							url:	$form.attr('action'),
+							type: 'POST',
+							cache    : false,
+							success  : function(data) {
+								alert(data);
+							}
+						});*/
+					});
+				}
+				else {
+					alert("Contraseña incorrecta");
+					//return false;
+				}
+
 			},
 			error:function(jqXHR, textStatus, errorThrown){
-           			alert(textStatus);
+           alert(textStatus);
 			     alert(errorThrown);
 			}
 		});
 	};
-//=======
-//>>>>>>> caab48a682ec495cbac5ef85b912edd34483f638
 };
