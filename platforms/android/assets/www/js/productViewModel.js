@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 var resultName;
 var resultCode;
@@ -22,6 +22,18 @@ ko.extenders.defaultIfNull = function(target, defaultValue) {
 
     return result;
 };
+
+function init() {
+    //var pvm=new ProductViewModel();
+    //pvm.getAll();
+
+    document.querySelector("#startScanProduct").addEventListener("touchend", startScanProducts, false);
+	resultCode = document.querySelector("#code");
+  //resultUrl = document.querySelector("#url");
+	resultName = document.querySelector("#name");
+	resultPrice = document.querySelector("#price");
+
+}
 
 var ProductViewModel = function(){
 
@@ -126,18 +138,6 @@ var ProductViewModel = function(){
 };
 
 ko.applyBindings(new ProductViewModel());
-
-function init() {
-    var pvm=new ProductViewModel();
-    pvm.getAll();
-
-    document.querySelector("#startScanProducts").addEventListener("touchend", startScanProducts, false);
-	resultCode = document.querySelector("#code");
-  //resultUrl = document.querySelector("#url");
-	resultName = document.querySelector("#name");
-	resultPrice = document.querySelector("#price");
-
-}
 
 function startScanProducts() {
 	cordova.plugins.barcodeScanner.scan(
