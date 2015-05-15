@@ -28,22 +28,18 @@
                 <form action="storeLocator.html" method="post">
                     <button type="submit">Ingresar Tienda</button>
                 </form>
-                <form action="productList.html" method="post">
-                    <button type="submit">Listado Productos</button>
-                </form>
-
-
             </center>
             <div class="card">
                 <ul class="table-view">
+                    <li class="table-view-cell table-view-divider">Stores</li>
                     <li class="table-view-cell">
-                        <a class="navigate-right">
-                          Item 1
+                        <a class="navigate-right" href="storeLocator.html" data-ignore="push">
+                          Store Locator
                         </a>
                     </li>
                     <li class="table-view-cell">
-                        <a class="navigate-right">
-                          Item 2
+                        <a class="navigate-right" href="storeLocator.html" data-ignore="push">
+                          Store List
                         </a>
                     </li>
                     <li class="table-view-cell table-view-divider">Products</li>
@@ -60,11 +56,11 @@
                 </ul>
             </div>
             <nav class="bar bar-tab">
-                <a class="tab-item active" href="#">
+                <a class="tab-item active" href="#" data-ignore="push">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">Home</span>
                 </a>
-                <a class="tab-item" href="#">
+                <a class="tab-item" href="#" data-ignore="push">
                     <span class="icon icon-person"></span>
                     <span class="tab-label">Profile</span>
                 </a>
@@ -76,10 +72,10 @@
                     <span class="icon icon-search"></span>
                     <span class="tab-label">Product</span>
                 </a>
-                <a class="tab-item" href="#">
+                <!-- <a class="tab-item" href="#">
                     <span class="icon icon-gear"></span>
                     <span class="tab-label">Settings</span>
-                </a>
+                </a> -->
             </nav>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

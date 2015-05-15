@@ -72,7 +72,6 @@ var ClientViewModel = function (){
 					alert("hola");
 					$("#loginOk")[0].submit(function(e){
 						e.preventDefault();
-						alert("holi");
 						/*$.ajax({
 
 							url:	$form.attr('action'),
