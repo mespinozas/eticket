@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
 var resultName;
-var resultCode;
 var resultPrice;
+var resultCode;
 
 document.addEventListener("deviceready", init, false);
 
@@ -29,7 +29,6 @@ function init() {
 
     document.querySelector("#startScanProduct").addEventListener("touchend", startScanProducts, false);
 	resultCode = document.querySelector("#code");
-  //resultUrl = document.querySelector("#url");
 	resultName = document.querySelector("#name");
 	resultPrice = document.querySelector("#price");
 
@@ -137,7 +136,7 @@ var ProductViewModel = function(){
   });
 };
 
-ko.applyBindings(new ProductViewModel());
+//ko.applyBindings(new ProductViewModel());
 
 function startScanProducts() {
 	cordova.plugins.barcodeScanner.scan(
