@@ -1,8 +1,8 @@
 'use strict';
 
 var resultName;
-var resultCode;
 var resultPrice;
+var resultCode;
 
 document.addEventListener("deviceready", init, false);
 

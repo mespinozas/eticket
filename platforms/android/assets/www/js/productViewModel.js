@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var resultName;
 var resultCode;
@@ -29,7 +29,6 @@ function init() {
 
     document.querySelector("#startScanProduct").addEventListener("touchend", startScanProducts, false);
 	resultCode = document.querySelector("#code");
-  //resultUrl = document.querySelector("#url");
 	resultName = document.querySelector("#name");
 	resultPrice = document.querySelector("#price");
 
