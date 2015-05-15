@@ -58,7 +58,6 @@ var ClientViewModel = function (){
 		var email = document.getElementById("mail").value;
 		var password = document.getElementById("pass").value;
 		var jsonPass = '{"_password":'+'"'+password+'"'+'}';
-		alert(jsonPass);
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients/'+ email ;
 		$.ajax({
 
@@ -68,10 +67,26 @@ var ClientViewModel = function (){
 			contentType: "aplication/json; charset=utf-8",
 			success: function(data){
 				//alert('Usuario encontrado');
-				alert(JSON.stringify(data, ['_password']));
-				if(JSON.parse(jsonPass) === JSON.stringify(data, ['_password']))
+				if(jsonPass === JSON.stringify(data, ['_password']))
 				{
-					alert("weeena conchetumare!!");
+					alert("hola");
+					$("#loginOk")[0].submit(function(e){
+						e.preventDefault();
+						alert("holi");
+						/*$.ajax({
+
+							url:	$form.attr('action'),
+							type: 'POST',
+							cache    : false,
+							success  : function(data) {
+								alert(data);
+							}
+						});*/
+					});
+				}
+				else {
+					alert("Contraseña incorrecta");
+					//return false;
 				}
 
 			},
