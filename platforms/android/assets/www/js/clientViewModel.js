@@ -27,7 +27,7 @@ var ClientViewModel = function (){
         contentType: "application/json; charset=utf-8",
 			  success: function(data){
 					//Si se crea el usuario vuelve a la página de inicio
-					alert('Usuario creado con éxito');
+					alert('Client registration successful');
 					$("#accountCreated")[0].submit(function(e){
 						e.preventDefault();
 					});
@@ -66,7 +66,7 @@ var ClientViewModel = function (){
 					});
 				}
 				else {
-					alert("Contraseña incorrecta");
+					alert("Wrong username-password combination");
 					//return false;
 				}
 
