@@ -1,14 +1,14 @@
-@font-face { 
-  font-family: Droid Sans; 
-    src: url('../fonts/DroidSans-webfont.eot'); 
-    src: local("Droid Sans"), url('../fonts/DroidSans-webfont.woff'); 
-} 
+@font-face {
+  font-family: Droid Sans;
+    src: url('../fonts/DroidSans-webfont.eot');
+    src: local("Droid Sans"), url('../fonts/DroidSans-webfont.woff');
+}
 
-@font-face { 
-  font-family: News Cycle; 
-    src: url('../fonts/NewsCycle-Regular.eot'); 
-    src: local("News Cycle"), url('../fonts/NewsCycle-Regular.ttf'); 
-} 
+@font-face {
+  font-family: News Cycle;
+    src: url('../fonts/NewsCycle-Regular.eot');
+    src: local("News Cycle"), url('../fonts/NewsCycle-Regular.ttf');
+}
 
 body {
 	color: #FFF;
@@ -17,90 +17,90 @@ body {
 	background: #1d1d1d;
 }
 
-p { 
+p {
   padding: 0 0 16px 0;
   line-height: 1.7em;
 }
 
-img { 
+img {
   border: 0;
 }
 
-h1, h2, h3, h4, h5, h6 { 
-  color: #33D0FD;
+h1, h2, h3, h4, h5, h6 {
+  color: white;
   letter-spacing: 0em;
   padding: 0 0 0.5em 0;
 }
 
-h1, h2, h3 { 
-  font: bold 140% 'News Cycle', arial;
+h1, h2, h3 {
+  font: bold 140% 'Android Serif', arial;
   margin: 0 0 1em 0;
   padding: 0 0 0.5em 0;
 }
 
-h2 { 
+h2 {
   font-size: 160%;
 }
 
-h3 { 
+h3 {
   font-size: 140%;
   padding: 0.5em 0 0 0;
 }
 
-h4, h5, h6 { 
+h4, h5, h6 {
   padding: 0 0 0.5em 0;
   font: normal 120% 'Droid Sans', arial, sans-serif;
 }
 
-a, a:hover { 
+a, a:hover {
   outline: none;
   text-decoration: none;
   color: #FFF;
 }
 
-a:hover { 
+a:hover {
   text-decoration: underline;
 }
 
-blockquote { 
-  margin: 2em 0; 
+blockquote {
+  margin: 2em 0;
   padding: 1em 2em 0 2em;
   border: 1px solid #E5E5DB;
   background: #FFF;
 }
 
-ul { 
+ul {
   margin: 0.1em 0 1em 2em;
 }
 
-ul li { 
+ul li {
   list-style-type: none;
-  margin: 0 0 0.25em 0; 
+  margin: 0 0 0.25em 0;
   padding: 0 0 0.25em 0.5em;
   line-height: 1.5em;
 }
 
-ol { 
+ol {
   margin: 0.1em 0 2em 2em;
 }
 
-ol li { 
-  margin: 0 0 0.5em 0; 
+ol li {
+  margin: 0 0 0.5em 0;
 }
 
-.left { 
+.left {
   float: left;
   width: auto;
   margin-right: 1em;
 }
 
-.right { 
-  float: right; 
+.right {
+  float: right;
   width: auto;
   margin-left: 1em;
 }
 
-.center { 
+.center {
   display: block;
   text-align: center;
   margin: 2em auto;
@@ -118,19 +118,19 @@ ol li {
 	padding: 0.5em 0.5em 1.5em 1em;
 	border-radius: 7px 7px 7px 7px;
 	-moz-border-radius: 7px 7px 7px 7px;
-	-webkit-border: 7px 7px 7px 7px; 
+	-webkit-border: 7px 7px 7px 7px;
 }
 
-#header h1 a { 
-  font: normal 180% 'News Cycle', arial, sans-serif;
+#header h1 a {
+  font: normal 180% 'Android Serif', arial, sans-serif;
   border-bottom: 0;
   text-transform: none;
   margin: 0;
-  color: #FFF;
+  color: white;
   text-decoration: none;
 }
 
-#header h2 { 
+#header h2 {
   font: normal 100% 'News Cycle', arial, sans-serif;
   border-bottom: 0;
   text-transform: none;
@@ -138,11 +138,11 @@ ol li {
   color: #FFF;
 }
 
-#header h1 a .header_colour { 
+#header h1 a .header_colour {
   color: #33D0FD;
 }
 
-#header a:hover .header_colour { 
+#header a:hover .header_colour {
   color: #FFF;
 }
 
@@ -156,33 +156,33 @@ ol li {
 }
 
 
-#main-nav ul { 
+#main-nav ul {
     font: normal 100% 'News Cycle', arial;
 	float: right;
 	list-style: none;
 	margin-top: 5.2em;
-	padding-bottom: 0.5em; 
+	padding-bottom: 0.5em;
 }
 
-#main-nav ul li { 
-	display: inline-block; 
-	margin: 0; 
-	padding: 0.35em 0em 0.35em 0em; 
-	border-radius: 0.5em; 
+#main-nav ul li {
+	display: inline-block;
+	margin: 0;
+	padding: 0.35em 0em 0.35em 0em;
+	border-radius: 0.5em;
 }
 
-#main-nav ul li a { 
-	color: #fff; 
+#main-nav ul li a {
+	color: #fff;
 	padding: 0.5em 1em 0.75em 1em;
 }
 
-#main-nav ul li a.active, #main-nav ul li a:hover { 
-	color: #fff; 
+#main-nav ul li a.active, #main-nav ul li a:hover {
+	color: #fff;
 	text-decoration: underline;
-    background: #2BB1E0;	
+    background: #2BB1E0;
 	border-radius: 7px 7px 7px 7px;
 	-moz-border-radius: 7px 7px 7px 7px;
-	-webkit-border: 7px 7px 7px 7px; 
+	-webkit-border: 7px 7px 7px 7px;
 }
 
 #banner_wrapper {
@@ -211,55 +211,55 @@ ol li {
 	color: #FFF;
 	border-radius: 7px 7px 7px 7px;
 	-moz-border-radius: 7px 7px 7px 7px;
-	-webkit-border: 7px 7px 7px 7px; 
+	-webkit-border: 7px 7px 7px 7px;
 	-moz-box-shadow: rgba(0, 0, 0, 0.5)  0px 3px 5px;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;
-	box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;	
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;
 }
 
-footer { 
+footer {
   font: 100% 'Droid Sans', arial, sans-serif;
-  text-align: center; 
+  text-align: center;
   margin: 0;
 }
 
-footer p { 
+footer p {
   line-height: 1.7em;
 }
 
-footer a { 
+footer a {
   text-decoration: none;
 }
 
-footer a:hover { 
+footer a:hover {
   text-decoration: underline;
 }
 
 /* A single menu */
-.dropotron { 
-	background: #1D1D1D; 
-	border-radius: 0.5em; 
-	list-style: none; 
-	margin: 0; 
-	min-width: 10em; 
-	padding: 0.75em 1em 0.75em 1em; 
+.dropotron {
+	background: #1D1D1D;
+	border-radius: 0.5em;
+	list-style: none;
+	margin: 0;
+	min-width: 10em;
+	padding: 0.75em 1em 0.75em 1em;
 }
-			
-.dropotron > li { 
+
+.dropotron > li {
 	border-top: solid 1px #555;
 	margin: 0;
 	padding: 0;
 }
 
-.dropotron > li:first-child { 
+.dropotron > li:first-child {
 	border-top: 0;
 }
-			
-.dropotron > li > a { 
-	color: #FFF; 
-	display: block; 
-	padding: 0.5em 0 0.5em 0; 
-	text-decoration: none; 
+
+.dropotron > li > a {
+	color: #FFF;
+	display: block;
+	padding: 0.5em 0 0.5em 0;
+	text-decoration: none;
 }
 
 .dropotron > li.active > a, .dropotron > li:hover > a {
@@ -267,29 +267,29 @@ footer a:hover {
 }
 
 /* Only applies to top level ("level-0") menus */
-.dropotron.level-0 { 
+.dropotron.level-0 {
 	margin-top: 1.25em;
 }
 
 .dropotron.level-0:before {
-	content: ''; 
-	position: absolute; 
-	border-bottom: solid 0.5em #444; 
+	content: '';
+	position: absolute;
+	border-bottom: solid 0.5em #444;
 	border-left: solid 0.5em transparent;
-	border-right: solid 0.5em transparent; 
-	top: -0.5em; 
+	border-right: solid 0.5em transparent;
+	top: -0.5em;
 }
 
 nav select {
   display: none;
 }
- 
+
 @media (max-width: 480px) {
   nav ul     { display: none; }
   nav select { display: inline-block;}
-}  
+}
 
-.form_settings { 
+.form_settings {
 	margin: 1em 0 0 0;
 }
 
@@ -298,58 +298,68 @@ nav select {
 }
 
 .form_settings span {
-	float: left; 
-	width: 22em; 
+	float: left;
+	width: 22em;
 	text-align: left;
 }
-  
+
 .form_settings input, .form_settings textarea {
-	padding: 0.25em; 
-	width: 20em; 
-	font: 100% arial; 
+	padding: 0.25em;
+	width: 20em;
+	font: 100% arial;
 	margin-bottom: 1em;
-	border: 1px solid #bbb; 
-	color: #47433F;
-}
-  
-.form_settings input[type="checkbox"] {
-	padding: 0; 
-	width: 1em; 
-	font: 100% arial; 
-	border: 0; 
+	border: 1px solid #bbb;
 	color: #47433F;
 }
 
-.form_settings .submit { 
+.form_settings input[type="checkbox"] {
+	padding: 0;
+	width: 1em;
+	font: 100% arial;
+	border: 0;
+	color: #47433F;
+}
+
+.form_settings .submit {
 	font-family: 'Source Sans Pro';
 	font-weight: 700;
-	border: 1px solid; 
-	width: 6em; 
-	margin: 0 0 0 14em; 
+	border: 1px solid;
+	width: 6em;
+	margin: 0 0 0 14em;
 	height: 2em;
-	cursor: pointer; 
+	cursor: pointer;
 	background: #33D0FD;
 	border-radius: 5px;
 	color: #FFF;
 }
-  
+
 .form_settings .submit:hover {
 	background: #2BB1E0;
 }
 
-table { 
+table {
   margin: 1em 0 3em 0;
 }
 
-table tr th, table tr td { 
+table tr th, table tr td {
   background: #323232;
   color: #FFF;
   padding: 0.75em 0.5em;
   text-align: left;
 }
-  
-table tr td { 
+
+table tr td {
   background: #FFF;
   color: #47433F;
   border-top: 1px solid #EEE;
+}
+
+.jumbo {
+    background-color: green;
+    color: white;
+}
+
+.sta-isa {
+    background-color: red;
+    color: yellow;
 }

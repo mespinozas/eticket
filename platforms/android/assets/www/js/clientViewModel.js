@@ -2,18 +2,18 @@
 
 
 var ClientViewModel = function (){
-	
+
 	var self = this;
 
-	self.name = ko.observable().extend({ min: 3 });
-	self.lname1 = ko.observable();
-	self.lname2 = ko.observable();
-	self.phone = ko.observable();
-	self.mail = ko.observable();
-	self.password = ko.observable();
+	self._name = ko.observable();
+	self._lname1 = ko.observable();
+	self._lname2 = ko.observable();
+	self._phone = ko.observable();
+	self._mail = ko.observable();
+	self._password = ko.observable();
 
 	/*self.Create function () {
-		
+
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
 		var formData =  {"name":"Paolo","lname1":"Herrera","lname2":"Araya","phone":"57245468","password":"prueba1","mail":"paolo.herrera.araya@gmail.com"};
 		$.ajax({
@@ -35,7 +35,7 @@ var ClientViewModel = function (){
 
 	self.save = function(){
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
-
+		alert(self._mail);
 
 		$.ajax({
 
@@ -47,12 +47,36 @@ var ClientViewModel = function (){
                     contentType: "application/json; charset=utf-8",
 			  success: function(data){
 				alert('Usuario creado con éxito');
+           			alert(textStatus);
 			  },
 			  error:function(jqXHR, textStatus, errorThrown){
-                       alert(textStatus);
 			     alert(errorThrown);
-                    }
+        }
 		});
     		//alert('hello');
+//<<<<<<< HEAD
   	};
+
+	self.startSesion = function() {
+		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients/'+ $("#mail").val() ;
+		$.ajax({
+
+			url:	url,
+			type: 'GET',
+			//data: "pepe taaaapiaaaaaa",
+			datatype: "json",
+			//processData: false,
+			contentType: "aplication/json; charset=utf-8",
+			success: function(data){
+				alert('Usuario encontrado');
+				alert(JSON.stringify(data));
+			},
+			error:function(jqXHR, textStatus, errorThrown){
+           			alert(textStatus);
+			     alert(errorThrown);
+			}
+		});			
+	};
+//=======
+//>>>>>>> caab48a682ec495cbac5ef85b912edd34483f638
 };

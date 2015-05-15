@@ -1,51 +1,86 @@
 <!DOCTYPE html>
-
 <html>
-    <head>
-	<meta charset="UTF-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <title>e-ticket</title>
-    </head>
-    <body>
-	<form action="registro.html" method="post">
-	<center>
-	<br>
-	<br>
-	<br>
-	<br>
-        <div class="app">
-            <h1>e-ticket</h1>
-		<button type="submit">Registrarse</button>
-	</form>
-	<form action="iniciar_sesion.html" method="post">
-		<button type="submit">Iniciar sesión</button>
-	</form>
-        </div>
-		<div data-role="header" data-position="fixed">
-</div>
-	</center>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;connect-src 'self'">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
 
-<div data-role="content">
-   <center>
-    <div id="mainbody">
-      </br>
-      <div id="outdiv">
-      </div>
-     </br>
-     </br>
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link href="css/ratchet.css" rel="stylesheet">
+
+    <title>e-Ticket</title>
+  </head>
+  <body>
+    <header class="bar bar-nav jumbo">
+      <center><h1>e-Ticket</h1></center>
+    </header>
+    <div class="content">
+      <center>
+        <br></br>
+        <br/>
+        <form action="clientRegister.html" method="post">
+          <button type="submit">Registrarse</button>
+        </form>
+        <br></br>
+      <form action="clientLogin.html" method="post">
+        <button type="submit">Iniciar sesión</button>
+      </form>
+      <br></br>
+      <form action="storeLocator.html" method="post">
+        <button type="submit">Ingresar Tienda</button>
+      </form>
+      <br></br>
+      <form action="productList.html" method="post">
+        <button type="submit">Listado Productos</button>
+      </form>
+      </center>
     </div>
-  <div id="result"></div>
-  <canvas id="qr-canvas" width="400" height="300"></canvas>
-  </center>
-</div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-	<script type="text/javascript" src="js/knockout-3.3.0.js"></script>
-	<script type="text/javascript" src="js/clientViewModel.js"></script>
-    </body>
+    <div data-role="header" data-position="fixed">
+    </div>
+    <div data-role="content">
+      <center>
+        <div id="mainbody">
+          <div id="outdiv">
+          </div>
+        </div>
+        <div id="result">
+        </div>
+        <canvas id="qr-canvas" width="400" height="300">
+        </canvas>
+      </center>
+      <nav class="bar bar-tab">
+        <a class="tab-item active" href="#">
+          <span class="icon icon-home"></span>
+          <span class="tab-label">Home</span>
+        </a>
+        <a class="tab-item" href="#">
+          <span class="icon icon-person"></span>
+          <span class="tab-label">Profile</span>
+        </a>
+        <a class="tab-item" href="storeLocator.html" data-transition="slide-in">
+          <span class="icon icon-star-filled"></span>
+          <span class="tab-label">Store</span>
+        </a>
+        <a class="tab-item" href="productScan.html" data-transition="slide-in">
+          <span class="icon icon-search"></span>
+          <span class="tab-label">Search Product</span>
+        </a>
+        <a class="tab-item" href="#">
+          <span class="icon icon-gear"></span>
+          <span class="tab-label">Settings</span>
+        </a>
+      </nav>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/ratchet.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+    <script type="text/javascript" src="js/clientViewModel.js"></script>
+  </body>
 </html>

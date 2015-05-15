@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://etickettest-mespinozas.rhcloud.com/api/clients/ ;media-src *">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="css/ratchet.css" rel="stylesheet">
+        <title>e-Ticket</title>
+    </head>
+
+	<body id="main-wrapper">
+        <header class="bar bar-nav">
+            <a class="icon icon-left-nav pull-left" href="index.html"></a>
+            <h1 class="title">Client Login</h1>
+        </header>
+        <div class="content">
+            <form>
+                <span> Mail </span>
+                <br></br>
+                <input type="email" name="mail" data-bind="value: _mail" required="required"/>
+                <br></br>
+                <span> Contraseña </span>
+                <br></br>
+                <input type="password" data-bind="value: _password" required="required" pattern= "{6,}" />
+                <br></br>
+                <button type="submit" data-bind="click: startSesion" > Iniciar sesión</button>
+			<br>
+			<br>
+			<br>
+			<br>
+            </form>
+            <nav class="bar bar-tab">
+              <a class="tab-item active" href="#">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">Home</span>
+              </a>
+              <a class="tab-item" href="#">
+                <span class="icon icon-person"></span>
+                <span class="tab-label">Profile</span>
+              </a>
+              <a class="tab-item" href="storeLocator.html" data-transition="slide-in">
+                <span class="icon icon-star-filled"></span>
+                <span class="tab-label">Tienda</span>
+              </a>
+              <a class="tab-item" href="#">
+                <span class="icon icon-search"></span>
+                <span class="tab-label">Search</span>
+              </a>
+              <a class="tab-item" href="#">
+                <span class="icon icon-gear"></span>
+                <span class="tab-label">Settings</span>
+              </a>
+            </nav>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+	 <script type="text/javascript" src="js/clientViewModel.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+    </body>
+</html>

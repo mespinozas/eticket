@@ -393,7 +393,7 @@ input[type="button"] {
   height: 44px;
   padding-right: 10px;
   padding-left: 10px;
-  background-color: #fff;
+  background-color: green;
   border-bottom: 1px solid #ddd;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
