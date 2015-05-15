@@ -11,30 +11,11 @@ var ClientViewModel = function (){
 	self._phone = ko.observable();
 	self._mail = ko.observable();
 	self._password = ko.observable();
-	/*self.Create function () {
 
-		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
-		var formData =  {"name":"Paolo","lname1":"Herrera","lname2":"Araya","phone":"57245468","password":"prueba1","mail":"paolo.herrera.araya@gmail.com"};
-		$.ajax({
-
-			  url: 	url,
-			  type: 	'POST',
-			  dataType: 'json',
-			  contentType: 'application/json; charset=utf-8',
-			  data: formData,
-			  success: function(data){
-				console.log(data);
-			  },
-			  error: function(request, textStatus, errorThrown){
-				alert('textStatus ' + textStatus);
-       			alert('errorThrown ' + errorThrown);
-			  }
-		});
-	};*/
-
+//Registra un usuario
 	self.save = function(){
+
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
-		alert(self._mail);
 
 		$.ajax({
 
@@ -42,11 +23,14 @@ var ClientViewModel = function (){
 			  type: 	'POST',
 			  data: ko.toJSON(self),
 			  datatype: "json",
-                    processData: false,
-                    contentType: "application/json; charset=utf-8",
+        processData: false,
+        contentType: "application/json; charset=utf-8",
 			  success: function(data){
-				alert('Usuario creado con éxito');
-           			alert(textStatus);
+					//Si se crea el usuario vuelve a la página de inicio
+					alert('Usuario creado con éxito');
+					$("#accountCreated")[0].submit(function(e){
+						e.preventDefault();
+					});
 			  },
 			  error:function(jqXHR, textStatus, errorThrown){
 			     alert(errorThrown);
@@ -54,10 +38,15 @@ var ClientViewModel = function (){
 		});
     		//alert('hello');
   	};
+
+		//Iniciar sesión
 	self.startSesion = function() {
+		//Guarda los datos que escribe el usuario en variables
 		var email = document.getElementById("mail").value;
 		var password = document.getElementById("pass").value;
+		//Guarda la password como una variable con componentes json
 		var jsonPass = '{"_password":'+'"'+password+'"'+'}';
+		//Busca al usuario por el mail
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients/'+ email ;
 		$.ajax({
 
@@ -67,20 +56,13 @@ var ClientViewModel = function (){
 			contentType: "aplication/json; charset=utf-8",
 			success: function(data){
 				//alert('Usuario encontrado');
+				//Si la pass que escribió el usuario es igual a la pass encontrada
 				if(jsonPass === JSON.stringify(data, ['_password']))
 				{
-					alert("hola");
+					//Va a la página siguiente
 					$("#loginOk")[0].submit(function(e){
 						e.preventDefault();
-						/*$.ajax({
 
-							url:	$form.attr('action'),
-							type: 'POST',
-							cache    : false,
-							success  : function(data) {
-								alert(data);
-							}
-						});*/
 					});
 				}
 				else {

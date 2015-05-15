@@ -34,7 +34,6 @@ var ClientViewModel = function (){
 
 	self.save = function(){
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
-		alert(self._mail);
 
 		$.ajax({
 
@@ -42,11 +41,13 @@ var ClientViewModel = function (){
 			  type: 	'POST',
 			  data: ko.toJSON(self),
 			  datatype: "json",
-                    processData: false,
-                    contentType: "application/json; charset=utf-8",
+        processData: false,
+        contentType: "application/json; charset=utf-8",
 			  success: function(data){
-				alert('Usuario creado con éxito');
-           			alert(textStatus);
+					alert('Usuario creado con éxito');
+					$("#accountCreated")[0].submit(function(e){
+						e.preventDefault();
+					});
 			  },
 			  error:function(jqXHR, textStatus, errorThrown){
 			     alert(errorThrown);
@@ -69,10 +70,8 @@ var ClientViewModel = function (){
 				//alert('Usuario encontrado');
 				if(jsonPass === JSON.stringify(data, ['_password']))
 				{
-					alert("hola");
 					$("#loginOk")[0].submit(function(e){
 						e.preventDefault();
-						alert("holi");
 						/*$.ajax({
 
 							url:	$form.attr('action'),
