@@ -61,7 +61,6 @@ var StoreViewModel = function(){
 	        dataType: 'json',
 	        contentType: 'application/json; charset=utf-8',
 	        success: function(data){
-				alert("Holi");
 				self._storeList(data);
 	        },
 	        error: function(xhr, type){

@@ -1,5 +1,10 @@
 'use strict';
-
+var resultName;
+var resultFirstLastName;
+var resultSecondLastName;
+var resultPhone;
+var resultMail;
+var resultPassword;
 
 var ClientViewModel = function (){
 
@@ -11,26 +16,6 @@ var ClientViewModel = function (){
 	self._phone = ko.observable();
 	self._mail = ko.observable();
 	self._password = ko.observable();
-	/*self.Create function () {
-
-		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
-		var formData =  {"name":"Paolo","lname1":"Herrera","lname2":"Araya","phone":"57245468","password":"prueba1","mail":"paolo.herrera.araya@gmail.com"};
-		$.ajax({
-
-			  url: 	url,
-			  type: 	'POST',
-			  dataType: 'json',
-			  contentType: 'application/json; charset=utf-8',
-			  data: formData,
-			  success: function(data){
-				console.log(data);
-			  },
-			  error: function(request, textStatus, errorThrown){
-				alert('textStatus ' + textStatus);
-       			alert('errorThrown ' + errorThrown);
-			  }
-		});
-	};*/
 
 	self.save = function(){
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
@@ -45,14 +30,13 @@ var ClientViewModel = function (){
                     processData: false,
                     contentType: "application/json; charset=utf-8",
 			  success: function(data){
-				alert('Usuario creado con éxito');
+				alert('User registration Succesful');
            			alert(textStatus);
 			  },
 			  error:function(jqXHR, textStatus, errorThrown){
 			     alert(errorThrown);
         }
 		});
-    		//alert('hello');
   	};
 	self.startSesion = function() {
 		var email = document.getElementById("mail").value;
@@ -69,7 +53,7 @@ var ClientViewModel = function (){
 				//alert('Usuario encontrado');
 				if(jsonPass === JSON.stringify(data, ['_password']))
 				{
-					alert("hola");
+					//alert("hola");
 					$("#loginOk")[0].submit(function(e){
 						e.preventDefault();
 						/*$.ajax({
@@ -84,10 +68,8 @@ var ClientViewModel = function (){
 					});
 				}
 				else {
-					alert("Contraseña incorrecta");
-					//return false;
+					alert("Wrong password or Username");
 				}
-
 			},
 			error:function(jqXHR, textStatus, errorThrown){
            alert(textStatus);
