@@ -11,7 +11,6 @@ var ClientViewModel = function (){
 	self._phone = ko.observable();
 	self._mail = ko.observable();
 	self._password = ko.observable();
-
 	/*self.Create function () {
 
 		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
@@ -55,9 +54,12 @@ var ClientViewModel = function (){
 		});
     		//alert('hello');
   	};
-
 	self.startSesion = function() {
-		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients/'+ $("#mail").val() ;
+		var email = document.getElementById("mail").value;
+		var password = document.getElementById("pass").value;
+		var jsonPass = '{"_password":'+'"'+password+'"'+'}';
+		alert(jsonPass);
+		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients/'+ email ;
 		$.ajax({
 
 			url:	url,
@@ -65,8 +67,13 @@ var ClientViewModel = function (){
 			datatype: "json",
 			contentType: "aplication/json; charset=utf-8",
 			success: function(data){
-				alert('Usuario encontrado');
-				alert(JSON.stringify(data));
+				//alert('Usuario encontrado');
+				alert(JSON.stringify(data, ['_password']));
+				if(JSON.parse(jsonPass) === JSON.stringify(data, ['_password']))
+				{
+					alert("weeena conchetumare!!");
+				}
+
 			},
 			error:function(jqXHR, textStatus, errorThrown){
            alert(textStatus);
