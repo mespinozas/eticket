@@ -18,25 +18,24 @@
 
   <body id="main-wrapper">
     <!-- Make sure all your bars are the first things in your <body> -->
-    <header class="bar bar-nav">
-      <a class="icon icon-left-nav pull-left" href="index.html"</a>
-      <h1 class="title">Listado de Productos</h1>
-    </header>
+        <header class="bar bar-nav">
+            <a class="icon icon-left-nav pull-left" href="index.html"></a>
+            <h1 class="title">List of Producto</h1>
+        </header>
+        <div class="content" id="productViewModel">
+            <div data-bind="foreach: _productList" class="card">
+                <ul class="table-view">
+                    <li class="table-view-cell">
+                        <span data-bind="text: _name"></span>
+                        <span data-bind="text: _price"></span>
+                    </li>
+                </ul>
+            </div> <!-- Crud Products -->
+        </div>
 
-    <div class="content" id="productViewModel">
-        <div data-bind="foreach: _productList" class="card">
-            <ul class="table-view">
-              <li class="table-view-cell">
-                  <span data-bind="text: _name"></span>
-                  <span data-bind="text: _price"></span>
-              </li>
-            </ul>
-        </div> <!-- Crud Products -->
-    </div>
-
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-    <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
-    <script type="text/javascript" src="js/productViewModel.js"></script>
-  </body>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+        <script type="text/javascript" src="js/productViewModel.js"></script>
+    </body>
 </html>
