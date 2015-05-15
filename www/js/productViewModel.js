@@ -1,21 +1,29 @@
 'use strict';
 
 var resultName;
-var resultLat;
-var resultLon;
-var resultAddress;
+var resultPrice;
+var resultCode;
+//var resultAddress;
 
 document.addEventListener("deviceready", init, false);
-window.addEventListener('push', init);
 
 function init() {
-	document.querySelector("#startScan").addEventListener("touchend", startScan, false);
+	try {
+		document.querySelector("#startScanProducts").addEventListener("touchend", startScanProduct, false);
+	} catch (e) {
+		alert('Lista');
+	}
 
+	try {
+		document.querySelector("#loadProducts").addEventListener("touchend", loadProductList, false);
+	} catch (e) {
+		alert('Scan');
+	}
   //resultUrl = document.querySelector("#url");
 	resultName = document.querySelector("#name");
-	resultLat = document.querySelector("#lat");
-	resultLon = document.querySelector("#lon");
-	resultAddress = document.querySelector("#address");
+	resultPrice = document.querySelector("#price");
+	resultCode = document.querySelector("#code");
+	//resultAddress = document.querySelector("#address");
 };
 
 ko.extenders.defaultIfNull = function(target, defaultValue) {
@@ -35,14 +43,14 @@ ko.extenders.defaultIfNull = function(target, defaultValue) {
     return result;
 };
 
-var StoreViewModel = function(){
+var ProductViewModel = function(){
  	var self = this;
 
 	self._name = ko.observable().extend({ defaultIfNull: "Store" });
-	self._lat = ko.observable().extend({ defaultIfNull: 0 });
-	self._lon = ko.observable().extend({ defaultIfNull: 0 });
-	self._address = ko.observable().extend({ defaultIfNull: "Address" });
-	self._storeList = ko.observableArray();
+	self._price = ko.observable().extend({ defaultIfNull: 0 });
+	//self._code = ko.observable().extend({ defaultIfNull: 0 });
+	self._code = ko.observable().extend({ defaultIfNull: "Code" });
+	self._productList = ko.observableArray();
 	self._id = ko.observable().extend({ defaultIfNull: 0 });
 	//self._isEditMode = ko.observable(false);
 	//self._isCreateMode = ko.observable(false);
@@ -52,7 +60,7 @@ var StoreViewModel = function(){
   };
 
   self.getAll = function(uri){
-    var url = uri ||'http://etickettest-mespinozas.rhcloud.com/api/stores/';
+    var url = uri ||'http://etickettest-mespinozas.rhcloud.com/api/products/';
 		alert(url);
     $.ajax({
         url: 	url,
@@ -61,13 +69,17 @@ var StoreViewModel = function(){
         contentType: 'application/json; charset=utf-8',
         success: function(data){
             alert('Take');
-						self.storeList(data);
-						alert('Collect');
+
+			//self.value=data._name;
+			//self.value=data._code;
+			//self.value=data._price;
+			self._productList(data);
+			alert('Collect');
         },
         error: function(xhr, type){
             console.error(xhr);
             console.error(type);
-						alert(xhr+" "+type );
+						alert('Error');
         }
     });
   };
@@ -90,8 +102,8 @@ var StoreViewModel = function(){
     });
   };*/
 
-	this.getStoreById = function(id){
-    var uri = 'http://etickettest-mespinozas.rhcloud.com/api/stores/'+id;
+	this.getProductById = function(id){
+    var uri = 'http://etickettest-mespinozas.rhcloud.com/api/products/'+id;
 
     $.ajax({
         url: 	uri,
@@ -109,14 +121,14 @@ var StoreViewModel = function(){
 						//self._address(data._address);
 
 						resultName.value=data._name;
-						resultLat.value=data._lat;
-						resultLon.value=data._lon;
-						resultAddress.value=data._address;
+						resultCode.value=data._code;
+						resultPrice.value=data._price;
+						//resultAddress.value=data._address;
 						//self._id(data._id);
             //alert('Reading Data Done');
         },
         error: function(xhr, type){
-						alert('Tienda No Encontrada');
+						alert('Producto No Encontrada');
 						console.error(xhr);
 						//alert(type);
             console.error(type);
@@ -125,17 +137,24 @@ var StoreViewModel = function(){
     });
   };
 };
-ko.applyBindings(new StoreViewModel());
-//ko.applyBindings(new StoreViewModel(), $('#storeInfo')[0]);
 
-function startScan() {
+var svm = new ProductViewModel();
+ko.applyBindings(svm,$('#main-wrapper')[0]);
+
+function startScanProduct() {
 	cordova.plugins.barcodeScanner.scan(
 		function (result) {
-			var svm = new StoreViewModel();
-      		svm.getStoreById(result.text);
+			//var svm = new ProductViewModel();
+      		svm.getProductById(result.text);
+			//ko.applyBindings(svm);
 		},
 		function (error) {
 			alert("Scanning failed: " + error);
 		}
 	);
+}
+function loadProductList() {
+	//var svm = new ProductViewModel();
+    svm.getAll();
+	//ko.applyBindings(svm);
 }

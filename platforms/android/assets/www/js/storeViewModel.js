@@ -6,7 +6,7 @@ var resultLon;
 var resultAddress;
 
 document.addEventListener("deviceready", init, false);
-//window.addEventListener('push', init);
+window.addEventListener('push', init);
 
 function init() {
 	document.querySelector("#startScan").addEventListener("touchend", startScan, false);
@@ -52,7 +52,7 @@ var StoreViewModel = function(){
   };
 
   self.getAll = function(uri){
-    var url = uri ||'http://etickettest-mespinozas.rhcloud.com:8000/api/stores/';
+    var url = uri ||'http://etickettest-mespinozas.rhcloud.com/api/stores/';
 		alert(url);
     $.ajax({
         url: 	url,
@@ -67,7 +67,7 @@ var StoreViewModel = function(){
         error: function(xhr, type){
             console.error(xhr);
             console.error(type);
-						alert('Error');
+						alert(xhr+" "+type );
         }
     });
   };

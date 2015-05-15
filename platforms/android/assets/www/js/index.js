@@ -17,7 +17,7 @@
  * under the License.
  */
 
- window.addEventListener('push', checkPage);
+//window.addEventListener('push', checkPage);
 
 var app = {
     // Application Constructor
@@ -36,15 +36,16 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-	  var cl = new ClientViewModel();
-    var pvm = new ProductViewModel();
-	  ko.applyBindings(cl, $('#main-wrapper')[0]);
-       // app.receivedEvent('deviceready');
+        var cvm = new ClientViewModel();
+        //var pvm = new ProductViewModel();
+        ko.applyBindings(cvm, $('#main-wrapper')[0]);
+        //ko.applyBindings(pvm, $('#main-wrapper')[0]);
+        app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //var parentElement = document.getElementById(id);
-       // var listeningElement = parentElement.querySelector('.listening');
+        //var listeningElement = parentElement.querySelector('.listening');
         //var receivedElement = parentElement.querySelector('.received');
 
         //listeningElement.setAttribute('style', 'display:none;');
@@ -57,58 +58,58 @@ var app = {
 
 
 app.initialize();
-
-var checkPage = function(){
-
-    var elm = document.getElementsByClassName("content")[0];
-    var script = elm.id;
-
-    if(script) {
-        $.getScript("js/"+elm.id+".js")
-        .done(function( script, textStatus ) {
-           console.log( textStatus );
-        })
-        .fail(function( jqxhr, statusText, errorThrown ) {
-            console.log(errorThrown);
-            console.log(statusText);
-            console.log(jqxhr);
-        });
-
-        $.getScript("js/ratchet.min.js")
-        .done(function( script, textStatus ) {
-           console.log( textStatus );
-        })
-        .fail(function( jqxhr, statusText, errorThrown ) {
-            console.log(errorThrown);
-            console.log(statusText);
-            console.log(jqxhr);
-        });
-        $.getScript("js/index.js")
-        .done(function( script, textStatus ) {
-           console.log( textStatus );
-        })
-        .fail(function( jqxhr, statusText, errorThrown ) {
-            console.log(errorThrown);
-            console.log(statusText);
-            console.log(jqxhr);
-        });
-        $.getScript("js/jquery-2.1.3.min.js")
-        .done(function( script, textStatus ) {
-           console.log( textStatus );
-        })
-        .fail(function( jqxhr, statusText, errorThrown ) {
-            console.log(errorThrown);
-            console.log(statusText);
-            console.log(jqxhr);
-        });
-        $.getScript("js/knockout-3.3.0.js")
-        .done(function( script, textStatus ) {
-           console.log( textStatus );
-        })
-        .fail(function( jqxhr, statusText, errorThrown ) {
-            console.log(errorThrown);
-            console.log(statusText);
-            console.log(jqxhr);
-        });
-    }
-};
+//
+// var checkPage = function(){
+//
+//     var elm = document.getElementsByClassName("content")[0];
+//     var script = elm.id;
+//
+//     if(script) {
+//         $.getScript("js/"+elm.id+".js")
+//         .done(function( script, textStatus ) {
+//            console.log( textStatus );
+//         })
+//         .fail(function( jqxhr, statusText, errorThrown ) {
+//             console.log(errorThrown);
+//             console.log(statusText);
+//             console.log(jqxhr);
+//         });
+//
+//         $.getScript("js/ratchet.min.js")
+//         .done(function( script, textStatus ) {
+//            console.log( textStatus );
+//         })
+//         .fail(function( jqxhr, statusText, errorThrown ) {
+//             console.log(errorThrown);
+//             console.log(statusText);
+//             console.log(jqxhr);
+//         });
+//         $.getScript("js/index.js")
+//         .done(function( script, textStatus ) {
+//            console.log( textStatus );
+//         })
+//         .fail(function( jqxhr, statusText, errorThrown ) {
+//             console.log(errorThrown);
+//             console.log(statusText);
+//             console.log(jqxhr);
+//         });
+//         $.getScript("js/jquery-2.1.3.min.js")
+//         .done(function( script, textStatus ) {
+//            console.log( textStatus );
+//         })
+//         .fail(function( jqxhr, statusText, errorThrown ) {
+//             console.log(errorThrown);
+//             console.log(statusText);
+//             console.log(jqxhr);
+//         });
+//         $.getScript("js/knockout-3.3.0.js")
+//         .done(function( script, textStatus ) {
+//            console.log( textStatus );
+//         })
+//         .fail(function( jqxhr, statusText, errorThrown ) {
+//             console.log(errorThrown);
+//             console.log(statusText);
+//             console.log(jqxhr);
+//         });
+//     }
+// };

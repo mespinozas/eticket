@@ -75,7 +75,7 @@ var ClientViewModel = function (){
            			alert(textStatus);
 			     alert(errorThrown);
 			}
-		});			
+		});
 	};
 //=======
 //>>>>>>> caab48a682ec495cbac5ef85b912edd34483f638
