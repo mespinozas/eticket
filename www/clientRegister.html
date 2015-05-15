@@ -14,67 +14,39 @@
             <h1 class="title">Client Register</h1>
         </header>
         <div class="content" id="clientViewModel">
-    <form id="accountCreated" action="index.html" method="post">
-      <br></br>
-      <span>Nombre</span>
-      <br>
-      <input type="text" data-bind="value: _name" required="required" pattern= "^[a-zA-Z]{3,}"/>
-      <br>
-      <span> Apellido Paterno </span>
-      <br>
-      <input type="text" data-bind="value: _lname1" required="required" pattern= "^[a-zA-Z]{3,}"/>
-      <br>
-      <span> Apellido Materno </span>
-      <br>
-      <input type="text" data-bind="value: _lname2" required="required" pattern= "^[a-zA-Z]{3,}"/>
-      <br>
-      <span> Teléfono </span>
-      <br>
-      <input type="text" data-bind="value: _phone" required="required"/>
-      <br>
-      <span> Mail </span>
-      <br>
-      <input type="email" data-bind="value: _mail" required="required"/>
-      <br>
-      <span> Contraseña </span>
-      <br>
-      <input type="password" data-bind="value: _password" required="required" pattern="^.{6,}" name="pwd1" onchange="form.pwd2.pattern = this.value;"/>
-      <br>
-      <span> Confirmar contraseña </span>
-      <br>
-      <input type="password" required="required" name="pwd2"/>
-      <br>
-      <button data-bind="click: save" > Registrarse</button>
-	<br>
-	<br>
-	<br>
-	<br>
-    </form>
-
-  </body>
-	<nav class="bar bar-tab">
-              <a class="tab-item active" href="#">
-                <span class="icon icon-home"></span>
-                <span class="tab-label">Home</span>
-              </a>
-              <a class="tab-item" href="#">
-                <span class="icon icon-person"></span>
-                <span class="tab-label">Profile</span>
-              </a>
-              <a class="tab-item" href="storeLocator.html" data-transition="slide-in">
-                <span class="icon icon-star-filled"></span>
-                <span class="tab-label">Tienda</span>
-              </a>
-              <a class="tab-item" href="#">
-                <span class="icon icon-search"></span>
-                <span class="tab-label">Search</span>
-              </a>
-              <a class="tab-item" href="#">
-                <span class="icon icon-gear"></span>
-                <span class="tab-label">Settings</span>
-              </a>
-        </nav>
-
+            <form class="input-group" id="accountCreated" action="index.html" method="post">
+                <div class="input-row">
+                    <label>Name</label>
+                    <input id="name" type="text" placeholder="Name" data-bind="value: _name" required="required" pattern= "^[a-zA-Z]{3,}">
+                </div>
+                <div class="input-row">
+                    <label>Lastname</label>
+                    <input id="firstLastName" type="text" placeholder="First Last Name" data-bind="value: _lname1" required="required" pattern= "^[a-zA-Z]{3,}"/>
+                </div>
+                <div class="input-row">
+                    <label>2° Lastname</label>
+                    <input id="secondLastName" type="text" placeholder="Second Last Name" data-bind="value: _lname2" required="required" pattern= "^[a-zA-Z]{3,}"/>
+                </div>
+                <div class="input-row">
+                    <label>Phone</label>
+                    <input id="phone" type="text" placeholder="Phone" data-bind="value: _phone" required="required"/>
+                </div>
+                <div class="input-row">
+                    <label>Mail</label>
+                    <input id="mail" placeholder="mail@example.com" type="email" data-bind="value: _mail" required="required"/>
+                </div>
+                <div class="input-row">
+                    <label>Password</label>
+                    <input id="pwd1" placeholder="password" type="password" data-bind="value: _password" required="required" pattern="^.{6,}" name="pwd1" onchange="form.pwd2.pattern = this.value;"/>
+                </div>
+                <div class="input-row">
+                    <label>Confirm</label>
+                    <input id="pwd2" placeholder="Confirm password" type="password" required="required" name="pwd2"/>
+                </div>
+                <button class="btn btn-block btn-primary" data-bind="click: save" > Register</button>
+            </form>
+        </div>
+    </body>
 	<script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/clientViewModel.js"></script>
