@@ -18,12 +18,30 @@
           <center>
               <button class="btn btn-block" id="startScan">Escanear Codigo</button>
           </center>
-          <div id="storeInfo" class="card">
-              <span>Tienda</span><input id="name" type="text" data-bind="value: _name" />
-              <span>Latitud</span><input id="lat" type="text" data-bind="value: _lat"  />
-              <span>Longitud</span><input id="lon" type="text" data-bind="value: _lon" />
-              <span>Direccion</span><input id="address" type="text" data-bind="value: _address"/>
-          </div>
+          <!-- <div id="storeInfo" class="card">
+              <label>Tienda</label><input id="name" type="text" data-bind="value: _name" />
+              <label>Latitud</label><input id="lat" type="text" data-bind="value: _lat"  />
+              <label>Longitud</label><input id="lon" type="text" data-bind="value: _lon" />
+              <label>Direccion</label><input id="address" type="text" data-bind="value: _address"/>
+          </div> -->
+          <form class="input-group">
+              <div class="input-row">
+                  <label>Store name</label>
+                  <input id="name" type="text" placeholder="Store Name" data-bind="value: _name">
+              </div>
+              <div class="input-row">
+                  <label>Latitude</label>
+                  <input id="lat" type="text" placeholder="Latitude" data-bind="value: _lat">
+              </div>
+              <div class="input-row">
+                  <label>Longitude</label>
+                  <input id="lon" type="text" placeholder="Longitude" data-bind="value: _lon">
+              </div>
+              <div class="input-row">
+                  <label>Address</label>
+                  <input id="address" type="text" placeholder="Address" data-bind="value: _address">
+              </div>
+          </form>
           <nav class="bar bar-tab">
             <a class="tab-item active" href="index.html" data-transition="slide-out">
               <span class="icon icon-home"></span>
