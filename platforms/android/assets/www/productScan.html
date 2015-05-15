@@ -17,12 +17,20 @@
           <center>
               <button class="btn btn-block" id="startScanProduct">Escanear Producto</button>
           </center>
-          <div id="storeInfo" class="card">
-              <span>Producto</span><input id="name" type="text" data-bind="value: _name" />
-              <span>Price</span><input id="price" type="text" data-bind="value: _price"  />
-              <span>Code</span><input id="code" type="text" data-bind="value: _code" />
-
-          </div>
+          <form class="input-group">
+              <div class="input-row">
+                  <label>Product Name</label>
+                  <input id="name" type="text" placeholder="Store Name" data-bind="value: _name">
+              </div>
+              <div class="input-row">
+                  <label>Price</label>
+                  <input id="price" type="text" placeholder="Price" data-bind="value: _price">
+              </div>
+              <div class="input-row">
+                  <label>Longitude</label>
+                  <input id="code" type="text" placeholder="Code" data-bind="value: _code">
+              </div>
+          </form>
           <nav class="bar bar-tab">
             <a class="tab-item active" href="index.html" data-transition="slide-in">
               <span class="icon icon-home"></span>
