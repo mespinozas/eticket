@@ -6,12 +6,16 @@ var resultLon;
 var resultAddress;
 
 document.addEventListener("deviceready", init, false);
-//window.addEventListener('push', init);
 
 function init() {
-	document.querySelector("#startScan").addEventListener("touchend", startScan, false);
-
-  //resultUrl = document.querySelector("#url");
+	try {
+		document.querySelector("#startScan").addEventListener("touchend", startScan, false);
+	} catch (e) {
+	}
+	try {
+		document.querySelector("#loadStores").addEventListener("touchend", loadStoreList, false);
+	} catch (e) {
+	}
 	resultName = document.querySelector("#name");
 	resultLat = document.querySelector("#lat");
 	resultLon = document.querySelector("#lon");
@@ -38,39 +42,34 @@ ko.extenders.defaultIfNull = function(target, defaultValue) {
 var StoreViewModel = function(){
  	var self = this;
 
-	self._name = ko.observable().extend({ defaultIfNull: "Store" });
-	self._lat = ko.observable().extend({ defaultIfNull: 0 });
-	self._lon = ko.observable().extend({ defaultIfNull: 0 });
-	self._address = ko.observable().extend({ defaultIfNull: "Address" });
+	self._name = ko.observable().extend({ defaultIfNull: "" });
+	self._lat = ko.observable().extend({ defaultIfNull: "" });
+	self._lon = ko.observable().extend({ defaultIfNull: "" });
+	self._address = ko.observable().extend({ defaultIfNull: "" });
 	self._storeList = ko.observableArray();
 	self._id = ko.observable().extend({ defaultIfNull: 0 });
-	//self._isEditMode = ko.observable(false);
-	//self._isCreateMode = ko.observable(false);
-
 	self.showList = function(){
 		self.getAll();
-  };
+  	};
 
-  self.getAll = function(uri){
-    var url = uri ||'http://etickettest-mespinozas.rhcloud.com:8000/api/stores/';
-		alert(url);
-    $.ajax({
-        url: 	url,
-        type: 	'GET',
-        dataType: 'json',
-        contentType: 'application/json; charset=utf-8',
-        success: function(data){
-            alert('Take');
-						self.storeList(data);
-						alert('Collect');
-        },
-        error: function(xhr, type){
-            console.error(xhr);
-            console.error(type);
-						alert('Error');
-        }
-    });
-  };
+  	self.getAll = function()
+	{
+    	var url = 'http://etickettest-mespinozas.rhcloud.com/api/stores/';
+	    $.ajax({
+	        url: 	url,
+	        type: 	'GET',
+	        dataType: 'json',
+	        contentType: 'application/json; charset=utf-8',
+	        success: function(data){
+				self._storeList(data);
+	        },
+	        error: function(xhr, type){
+	            console.error(xhr);
+	            console.error(type);
+				alert(xhr+" "+type );
+	        }
+    	});
+	};
 
   /*self.get = function(uri){
 		//var uri = 'http://etickettest-mespinozas.rhcloud.com:8000/api/products/';
@@ -90,52 +89,42 @@ var StoreViewModel = function(){
     });
   };*/
 
-	this.getStoreById = function(id){
-    var uri = 'http://etickettest-mespinozas.rhcloud.com/api/stores/'+id;
-
-    $.ajax({
-        url: 	uri,
-        type: 'GET',
-        dataType: 'json',
-        //contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        contentType: 'application/json; charset=utf-8',
-        success: function(data){
-						//alert('Reading Before Data');
-						console.log(data);
-            //alert('Reading Before Data');
-						//self._name(data._name);
-						//self._lat(data._lat);
-						//self._lon(data._lon);
-						//self._address(data._address);
-
-						resultName.value=data._name;
-						resultLat.value=data._lat;
-						resultLon.value=data._lon;
-						resultAddress.value=data._address;
-						//self._id(data._id);
-            //alert('Reading Data Done');
-        },
-        error: function(xhr, type){
-						alert('Tienda No Encontrada');
-						console.error(xhr);
-						//alert(type);
-            console.error(type);
-						//alert('Reading Error');
-        }
-    });
-  };
+	this.getStoreById = function(id)
+	{
+    	var uri = 'http://etickettest-mespinozas.rhcloud.com/api/stores/'+id;
+	    $.ajax({
+	        url: 	uri,
+	        type: 'GET',
+	        dataType: 'json',
+	        contentType: 'application/json; charset=utf-8',
+	        success: function(data){
+				console.log(data);
+				resultName.value=data._name;
+				resultLat.value=data._lat;
+				resultLon.value=data._lon;
+				resultAddress.value=data._address;
+	        },
+	        error: function(xhr, type){
+				alert('Tienda No Encontrada');
+				console.error(xhr);
+	            console.error(type);
+	        }
+	    });
+  	};
 };
-ko.applyBindings(new StoreViewModel());
-//ko.applyBindings(new StoreViewModel(), $('#storeInfo')[0]);
+var vm = new StoreViewModel();
+ko.applyBindings(vm, $('#main-wrapper')[0]);
 
 function startScan() {
 	cordova.plugins.barcodeScanner.scan(
 		function (result) {
-			var svm = new StoreViewModel();
-      		svm.getStoreById(result.text);
+      		vm.getStoreById(result.text);
 		},
 		function (error) {
 			alert("Scanning failed: " + error);
 		}
 	);
+}
+function loadStoreList() {
+    vm.getAll();
 }

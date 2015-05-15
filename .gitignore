@@ -64,3 +64,6 @@ Thumbs.db
 #.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
 .gradle
 build/
+*.lock
+*.lock
+platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin
