@@ -26,15 +26,15 @@ ko.extenders.defaultIfNull = function(target, defaultValue) {
     return result;
 };
 
-var ProductViewModel = function(){
+var AddressViewModel = function(){
  	var self = this;
 
-	self._name = ko.observable().extend({ defaultIfNull: "Store" });
-	self._price = ko.observable().extend({ defaultIfNull: 0 });
+	self._name = ko.observable().extend({ defaultIfNull: "" });
+	self._price = ko.observable().extend({ defaultIfNull: "" });
 	//self._code = ko.observable().extend({ defaultIfNull: 0 });
-	self._code = ko.observable().extend({ defaultIfNull: "Code" });
+	self._code = ko.observable().extend({ defaultIfNull: "" });
 	self._productList = ko.observableArray();
-	self._id = ko.observable().extend({ defaultIfNull: 0 });
+	self._id = ko.observable().extend({ defaultIfNull: "" });
 	//self._isEditMode = ko.observable(false);
 	//self._isCreateMode = ko.observable(false);
 
@@ -52,18 +52,18 @@ var ProductViewModel = function(){
         contentType: 'application/json; charset=utf-8',
         success: function(data){
             alert('Take');
-			self._productList(data);
+			self._addressList(data);
         },
         error: function(xhr, type){
             console.error(xhr);
             console.error(type);
-			alert('Error');
+			//alert('Error');
         }
     });
   };
 
 	this.getAddressById = function(id){
-    var uri = 'http://etickettest-mespinozas.rhcloud.com/api/products/'+id;
+    var uri = 'http://etickettest-mespinozas.rhcloud.com/api/addresses/'+id;
     $.ajax({
         url: 	uri,
         type: 'GET',
@@ -76,7 +76,7 @@ var ProductViewModel = function(){
 			resultPrice.value=data._price;
         },
         error: function(xhr, type){
-			alert('Product Not Found');
+			alert('Address Not Found');
 			console.error(xhr);
             console.error(type);
         }
@@ -91,13 +91,13 @@ function init() {
 	try {
 		document.querySelector("#startScanProducts").addEventListener("touchend", startScanProduct, false);
 	} catch (e) {
-		alert('Lista');
+		//alert('Lista');
 	}
 
 	try {
 		document.querySelector("#loadAddress").addEventListener("touchend", loadProductList, false);
 	} catch (e) {
-		alert('Scan');
+		//alert('Scan');
 	}
   //resultUrl = document.querySelector("#url");
 	resultName = document.querySelector("#name");
