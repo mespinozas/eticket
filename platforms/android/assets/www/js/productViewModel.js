@@ -67,7 +67,7 @@ var ProductViewModel = function(){
         error: function(xhr, type){
             console.error(xhr);
             console.error(type);
-						alert('Empty Product List');
+			alert('Empty Product List');
         }
     });
   };

@@ -125,6 +125,6 @@ function startScan() {
 		}
 	);
 }
-function loadProductList() {
+function loadStoreList() {
     vm.getAll();
 }
