@@ -8,20 +8,24 @@ var resultAddress;
 document.addEventListener("deviceready", init, false);
 
 function init() {
+	//Event Listener para scan QR
 	try {
 		document.querySelector("#startScan").addEventListener("touchend", startScan, false);
 	} catch (e) {
 	}
+	//Cargar listado productos
 	try {
 		document.querySelector("#loadStores").addEventListener("touchend", loadStoreList, false);
 	} catch (e) {
 	}
+	//Jquery actualizacion de Datos consulta
 	resultName = document.querySelector("#name");
 	resultLat = document.querySelector("#lat");
 	resultLon = document.querySelector("#lon");
 	resultAddress = document.querySelector("#address");
 };
 
+//extension de knockout observable para evitar valores nulos
 ko.extenders.defaultIfNull = function(target, defaultValue) {
     var result = ko.computed({
         read: target,
@@ -52,6 +56,7 @@ var StoreViewModel = function(){
 		self.getAll();
   	};
 
+	//obtiene todas las tiedas
   	self.getAll = function()
 	{
     	var url = 'http://etickettest-mespinozas.rhcloud.com/api/stores/';
@@ -66,7 +71,7 @@ var StoreViewModel = function(){
 	        error: function(xhr, type){
 	            console.error(xhr);
 	            console.error(type);
-				alert(xhr+" "+type );
+				//alert(xhr+" "+type );
 	        }
     	});
 	};
@@ -88,7 +93,7 @@ var StoreViewModel = function(){
         }
     });
   };*/
-
+	//Obtiene tiendas por su Id
 	this.getStoreById = function(id)
 	{
     	var uri = 'http://etickettest-mespinozas.rhcloud.com/api/stores/'+id;
@@ -105,17 +110,20 @@ var StoreViewModel = function(){
 				resultAddress.value=data._address;
 	        },
 	        error: function(xhr, type){
-				alert('Tienda No Encontrada');
+				alert('Code not associated to a store');
 				console.error(xhr);
 	            console.error(type);
 	        }
 	    });
   	};
 };
+
+//Binding de knockoutjs
 var vm = new StoreViewModel();
 ko.applyBindings(vm, $('#main-wrapper')[0]);
 
 function startScan() {
+	//
 	cordova.plugins.barcodeScanner.scan(
 		function (result) {
       		vm.getStoreById(result.text);

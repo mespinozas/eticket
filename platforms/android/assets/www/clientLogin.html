@@ -15,17 +15,21 @@
             <h1 class="title">Client Login</h1>
         </header>
         <div class="content" id="clientViewModel">
-            <form id="loginOk" action="home.html" method="post">
-                <div class="input-row">
-                    <label>Mail</label>
-                    <input id="mail" placeholder="mail@example.com" type="email" data-bind="value: _mail" required="required"/>
-                </div>
-                <div class="input-row">
-                    <label>Password</label>
-                    <input id="pass" placeholder="password" type="password" data-bind="value: _password" required="required" pattern="^.{6,}"/>
-                </div>
-                <button class="btn btn-block btn-primary" type="submit" data-bind="click: startSesion" > Log in</button>
-          </form>
+            <div class="card">
+                <form id="loginOk" action="home.html" method="post">
+                    <div class="input-row">
+                        <label>Mail</label>
+                        <input id="mail" placeholder="mail@example.com" type="email" data-bind="value: _mail" required="required"/>
+                    </div>
+                    <div class="input-row">
+                        <label>Password</label>
+                        <input id="pass" placeholder="password" type="password" data-bind="value: _password" required="required" pattern="^.{6,}"/>
+                    </div>
+                    <div class="card">
+                        <button class="btn btn-block btn-primary" type="submit" data-bind="click: startSesion" > Log in</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </body>
     <script type="text/javascript" src="cordova.js"></script>
