@@ -36,10 +36,13 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-  	  var cl = new ClientViewModel();
-  	  ko.applyBindings(cl, $('#main-wrapper')[0]);
-     app.receivedEvent('deviceready');
+		//console.log(navigator.globalization);
+        //var cl = new ClientViewModel();
+        //ko.applyBindings(cl, $('#main-wrapper')[0]);
 
+        i18n.init();
+
+        app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -50,7 +53,20 @@ var app = {
         //listeningElement.setAttribute('style', 'display:none;');
         //receivedElement.setAttribute('style', 'display:block;');
 
-        //console.log('Received Event: ' + id);
+        //console.log('Received Event: ' + id);\
+        navigator.globalization.getPreferredLanguage(
+            function (language) {alert('language: ' + language.value + '\n');},
+            function () {alert('Error getting language\n');}
+        );
+        var opts = {
+            getAsync: true, lng: "es", fallbackLng: 'en'
+        };
+
+        i18n.init(opts).done(function() {
+            alert('Error getting language\n');
+        });
+        $("#login").i18n();
+        $("#register").i18n();
     }
 };
 
