@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
+ //var ln = require('./ln');
 //window.addEventListener('push', checkPage);
 
 var app = {
@@ -40,7 +40,7 @@ var app = {
         //var cl = new ClientViewModel();
         //ko.applyBindings(cl, $('#main-wrapper')[0]);
 
-        i18n.init();
+
 
         app.receivedEvent('deviceready');
     },
@@ -58,14 +58,16 @@ var app = {
             function (language) {alert('language: ' + language.value + '\n');},
             function () {alert('Error getting language\n');}
         );
+        //ln.init();
         var opts = {
             getAsync: true, lng: "es", fallbackLng: 'en'
         };
 
         i18n.init(opts).done(function() {
-            alert('Error getting language\n');
+            //alert('getting language\n');
+            var x = $.t("login.register");
         });
-        $("#login").i18n();
+        //$("#login").i18n();
         $("#register").i18n();
     }
 };
