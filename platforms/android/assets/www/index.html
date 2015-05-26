@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;connect-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *;connect-src 'self'">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -10,6 +10,15 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <link href="css/ratchet.css" rel="stylesheet">
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/ratchet.min.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+        <script type="text/javascript" src="js/i18next-1.9.0.min.js" />
+        <script type="text/javascript" src="js/globalization.js"></script>
+        <script type="text/javascript" src="js/GlobalizationError.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 
         <title>e-Ticket</title>
     </head>
@@ -19,32 +28,22 @@
         </header>
         <div class="content">
 
-            <h1>Welcome to e-Ticket</h1>
-
+            Welcome to e-Ticket
             <ul class="table-view">
                 <li class="table-view-cell">
-                    <a class="navigate-right" href="clientLogin.html" data-ignore="push">
-                      Login
+                    <a id="login" class="navigate-right" href="clientLogin.html" data-ignore="push">
+                        Login
                     </a>
                 </li>
                 <li class="table-view-cell">
-                    <a class="navigate-right" href="clientRegister.html" data-ignore="push">
-                      Register
+                    <a id="register" class="navigate-right" href="clientRegister.html" data-ignore="push" data-i18n="login.register">Register
                     </a>
                 </li>
             </ul>
         </div>
     </div>
-        <script type="text/javascript" src="cordova.js"></script>
 
-        <script type="text/javascript" src="js/ratchet.min.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
-        <script type="text/javascript" src="js/clientViewModel.js"></script>
-        <!-- <script type="text/javascript" src="js/productViewModel.js"></script> -->
-        <!-- <script type="text/javascript" src="js/storeViewModel.js"></script> -->
 
-        <script type="text/javascript" src="js/index.js"></script>
         <!-- <script type="text/javascript" src="js/productViewModel.js"></script> -->
     </body>
 </html>

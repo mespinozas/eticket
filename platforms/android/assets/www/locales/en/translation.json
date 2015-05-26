@@ -1,0 +1,15 @@
+{
+	"app": {
+		"name": "i18next"
+	},
+	"nav": {
+		"home": "Home",
+		"page1": "Page One",
+		"page2": "Page Two"
+	},
+	"login": {
+		"welcome": "Welcome to e-Tichet",
+		"login": "Login",
+		"register": "Register" 
+	}
+}

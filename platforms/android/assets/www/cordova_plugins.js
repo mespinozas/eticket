@@ -39,6 +39,20 @@ module.exports = [
         "clobbers": [
             "CameraPopoverHandle"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
+        "id": "cordova-plugin-globalization.GlobalizationError",
+        "clobbers": [
+            "window.GlobalizationError"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-globalization/www/globalization.js",
+        "id": "cordova-plugin-globalization.globalization",
+        "clobbers": [
+            "navigator.globalization"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -46,7 +60,9 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.0.1-dev",
     "com.phonegap.plugins.barcodescanner": "2.0.1",
-    "org.apache.cordova.camera": "0.3.6"
+    "org.apache.cordova.camera": "0.3.6",
+    "cordova-plugin-globalization": "1.0.0",
+    "cordova-plugin-geolocation": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

@@ -78,3 +78,6 @@ var ClientViewModel = function (){
 		});
 	};
 };
+
+var vm = new ClientViewModel();
+ko.applyBindings(vm,$('#main-wrapper')[0]);
