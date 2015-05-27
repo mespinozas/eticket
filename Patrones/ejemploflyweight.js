@@ -83,6 +83,7 @@ function run() {
     milks.add("Calo", "Entera", "1 litro", "990", "1234fff");
     milks.add("Calo", "Entera", "1 litro", "890", "1234ppp");
  
+    milks.add("Calo", "Descremada", "1 litro", "890", "1234ppp");
     log.add("Cantidad de leche: " + milks.getCount());
     log.add("Cantidad de Flyweights: " + FlyWeightFactory.getCount());
     log.show();
