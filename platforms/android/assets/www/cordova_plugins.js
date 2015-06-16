@@ -53,6 +53,13 @@ module.exports = [
         "clobbers": [
             "navigator.globalization"
         ]
+    },
+    {
+        "file": "plugins/nl.x-services.plugins.googleplus/www/GooglePlus.js",
+        "id": "nl.x-services.plugins.googleplus.GooglePlus",
+        "clobbers": [
+            "window.plugins.googleplus"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -62,7 +69,9 @@ module.exports.metadata =
     "com.phonegap.plugins.barcodescanner": "2.0.1",
     "org.apache.cordova.camera": "0.3.6",
     "cordova-plugin-globalization": "1.0.0",
-    "cordova-plugin-geolocation": "1.0.0"
+    "cordova-plugin-geolocation": "1.0.0",
+    "nl.x-services.plugins.googleplus": "1.1.2",
+    "com.google.playservices": "21.0.1"
 }
 // BOTTOM OF METADATA
 });
