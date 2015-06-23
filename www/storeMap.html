@@ -9,6 +9,19 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPbeZ3pprAtLAE9q2uPPLwceWN_u-LC2I&sensor=true">
+        </script>
+  <script type="text/javascript">
+             function initialize() {
+               var mapOptions = {
+                 center: { lat: -30.2442319,lng: -71.5037422},
+                 zoom: 8
+               };
+               var map = new google.maps.Map(document.getElementById('map-canvas'),
+                   mapOptions);
+             }
+             google.maps.event.addDomListener(window, 'load', initialize);
+         </script>
 </head>
 <body>
   <nav class="green lighten-1" role="navigation">
@@ -28,51 +41,13 @@
   
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <h1 class="header center orange-text">Shopping Cart</h1>
-      <div class="row center">
-		<table class="hoverable">
-        <thead>
-          <tr>
-              <th data-field="id">Producto</th>
-              <th data-field="name">Unidades</th>
-              <th data-field="price">Precio Unitario</th>
-              <th data-field="price">Precio Total</th>
-          </tr>
-        </thead>
-
-        <tbody data-bind="foreach: people">
-          <tr>
-            <td>Alvin</td>
-            <td><input type="number"/></td>
-            <td>$800</td>
-            <td>$800</td>
-          </tr>
-          <tr>
-            <td>Pan</td>
-            <td>2</td>
-            <td>$3000</td>
-                      <td>$6000</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>1</td>
-            <td>$7000</td>
-            <td>$7000</td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-      <div class="row center">
-        <a href="sale.html" id="cancel-button" class="btn-large waves-effect waves-light red">Cancel</a>
-        <a href="sale.html" id="pay-button" class="btn-large waves-effect waves-light orange">Pagar</a>
-        <a href="sale.html" id="scan-button" class="btn-large waves-effect waves-light green">Continuar Compra</a>
-      </div>
+      <h1 class="header center orange-text">Store Map</h1>	
     </div>
   </div>
 
 
   <div class="container">
-    
+    	<div id="map-canvas" style="height:600px;width:350px"></div>
 
   </div>
 
