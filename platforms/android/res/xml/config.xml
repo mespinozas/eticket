@@ -14,6 +14,11 @@
     <feature name="Globalization">
         <param name="android-package" value="org.apache.cordova.globalization.Globalization" />
     </feature>
+    <feature name="GooglePlus">
+        <param name="android-package" value="nl.xservices.plugins.GooglePlus" />
+        <param name="onload" value="true" />
+    </feature>
+    <access origin="https://accounts.google.com/*" />
     <allow-intent href="market:*" />
     <name>e-ticket</name>
     <description>
@@ -30,9 +35,4 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <feature name="GooglePlus">
-        <param name="android-package" value="nl.xservices.plugins.GooglePlus" />
-        <param name="onload" value="true" />
-    </feature>
-    <access origin="https://accounts.google.com/*" />
 </widget>
