@@ -31,6 +31,10 @@
                         {
                             "xml": "<access origin=\"https://accounts.google.com/*\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -88,6 +92,10 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
                         }
                     ]
@@ -594,6 +602,9 @@
             "PACKAGE_NAME": "com.espinozafariasherrera.eticket"
         },
         "nl.x-services.plugins.googleplus": {
+            "PACKAGE_NAME": "com.espinozafariasherrera.eticket"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.espinozafariasherrera.eticket"
         }
     },

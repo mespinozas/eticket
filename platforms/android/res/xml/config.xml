@@ -19,6 +19,9 @@
         <param name="onload" value="true" />
     </feature>
     <access origin="https://accounts.google.com/*" />
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
     <allow-intent href="market:*" />
     <name>e-ticket</name>
     <description>
