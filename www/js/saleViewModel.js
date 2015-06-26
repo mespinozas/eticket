@@ -8,17 +8,17 @@ var resultAddress;
 document.addEventListener("deviceready", init, false);
 
 function init() {
-	//Event Listener para scan QR
+	//Event Listener to scan QR
 	try {
 		document.querySelector("#startScan").addEventListener("touchend", startScan, false);
 	} catch (e) {
 	}
-	//Cargar listado productos
+	//Load product list
 	try {
-		document.querySelector("#loadStores").addEventListener("touchend", loadStoreList, false);
+		document.querySelector("#loadSales").addEventListener("touchend", loadSaleList, false);
 	} catch (e) {
 	}
-	//Jquery actualizacion de Datos consulta
+	//Jquery update info
 	resultName = document.querySelector("#name");
 	resultLat = document.querySelector("#lat");
 	resultLon = document.querySelector("#lon");
@@ -43,15 +43,23 @@ ko.extenders.defaultIfNull = function(target, defaultValue) {
     return result;
 };
 
-//Store View Model
-var StoreViewModel = function(){
+//Sale View Model
+var SaleViewModel = function(){
  	var self = this;
+	self._date = ko.observable().extend({ defaultIfNull: "" });
+    self._store= ko.observable().extend({ defaultIfNull: "" });
+    self._status= ko.observable().extend({ defaultIfNull: "" });
+    self._client= ko.observable().extend({ defaultIfNull: "" });
+    self._total= ko.observable().extend({ defaultIfNull: "" });
 
-	self._name = ko.observable().extend({ defaultIfNull: "" });
-	self._lat = ko.observable().extend({ defaultIfNull: "" });
-	self._lon = ko.observable().extend({ defaultIfNull: "" });
-	self._address = ko.observable().extend({ defaultIfNull: "" });
-	self._storeList = ko.observableArray();
+	self._cart: [{
+        _units: {type: Number, required:true},
+        _product: {type: String, required:true},
+        _discount:  {type: Number, required:true},
+        _cost: {type: Number, required:true}
+        }]
+
+	self._saleList = ko.observableArray();
 	self._id = ko.observable().extend({ defaultIfNull: 0 });
 	self.showList = function(){
 		self.getAll();
@@ -60,14 +68,14 @@ var StoreViewModel = function(){
 	//obtiene todas las tiedas
   	self.getAll = function()
 	{
-    	var url = 'http://etickettest-mespinozas.rhcloud.com/api/stores/';
+    	var url = 'http://etickettest-mespinozas.rhcloud.com/api/sales/';
 	    $.ajax({
 	        url: 	url,
 	        type: 	'GET',
 	        dataType: 'json',
 	        contentType: 'application/json; charset=utf-8',
 	        success: function(data){
-				self._storeList(data);
+				self._saleList(data);
 	        },
 	        error: function(xhr, type){
 	            console.error(xhr);
@@ -94,10 +102,10 @@ var StoreViewModel = function(){
         }
     });
   };*/
-	//Get an specific Store by Id
-	this.getStoreById = function(id)
+	//Get an specific Sale by Id
+	this.getSaleById = function(id)
 	{
-    	var uri = 'http://etickettest-mespinozas.rhcloud.com/api/stores/'+id;
+    	var uri = 'http://etickettest-mespinozas.rhcloud.com/api/sales/'+id;
 	    $.ajax({
 	        url: 	uri,
 	        type: 'GET',
@@ -111,7 +119,7 @@ var StoreViewModel = function(){
 				resultAddress.value=data._address;
 	        },
 	        error: function(xhr, type){
-				alert('Code not associated to a store');
+				alert('Code not associated to a sale');
 				console.error(xhr);
 	            console.error(type);
 	        }
@@ -120,7 +128,7 @@ var StoreViewModel = function(){
 };
 
 //Binding de knockoutjs
-var vm = new StoreViewModel();
+var vm = new SaleViewModel();
 ko.applyBindings(vm, $('#main-wrapper')[0]);
 
 //Barcode scanner plugin integration
@@ -128,13 +136,13 @@ function startScan() {
 	//
 	cordova.plugins.barcodeScanner.scan(
 		function (result) {
-      		vm.getStoreById(result.text);
+      		vm.getSaleById(result.text);
 		},
 		function (error) {
 			alert("Scanning failed: " + error);
 		}
 	);
 }
-function loadStoreList() {
+function loadSaleList() {
     vm.getAll();
 }
