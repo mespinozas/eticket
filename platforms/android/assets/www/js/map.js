@@ -25,11 +25,6 @@
         if(navigator.connection.type === Connection.NONE  || (global.google !== undefined && global.google.maps)) {
             return;
         }
-        // if (!gotContacts){
-        //     $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDiJNpwF9wcDO6wVQn2W4ktXOwFEtfqYLs&sensor=true&callback=onMapsApiLoaded', function() {
-        //         gotContacts = 1;
-        //     });
-        // }
         $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDiJNpwF9wcDO6wVQn2W4ktXOwFEtfqYLs&sensor=true&callback=onMapsApiLoaded');
     }
 
