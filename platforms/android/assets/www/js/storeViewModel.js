@@ -25,7 +25,7 @@ function init() {
 	resultAddress = document.querySelector("#address");
 };
 
-//extension de knockout observable para evitar valores nulos
+//Knockout observable extension to avoid null values
 ko.extenders.defaultIfNull = function(target, defaultValue) {
     var result = ko.computed({
         read: target,
@@ -43,6 +43,7 @@ ko.extenders.defaultIfNull = function(target, defaultValue) {
     return result;
 };
 
+//Store View Model
 var StoreViewModel = function(){
  	var self = this;
 
@@ -93,7 +94,7 @@ var StoreViewModel = function(){
         }
     });
   };*/
-	//Obtiene tiendas por su Id
+	//Get an specific Store by Id
 	this.getStoreById = function(id)
 	{
     	var uri = 'http://etickettest-mespinozas.rhcloud.com/api/stores/'+id;
@@ -122,6 +123,7 @@ var StoreViewModel = function(){
 var vm = new StoreViewModel();
 ko.applyBindings(vm, $('#main-wrapper')[0]);
 
+//Barcode scanner plugin integration
 function startScan() {
 	//
 	cordova.plugins.barcodeScanner.scan(

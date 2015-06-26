@@ -11,21 +11,32 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <nav class="green lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">eTicket</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Profile</a></li>
-      </ul>
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Products</a></li>
-      </ul>
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Stores</a></li>
-      </ul>
+	<nav class="green lighten-1" role="navigation">
+        <ul class="right hide-on-med-and-down">
+            <li><a href="clientEdit">Client Profile</a></li>
+            <li><a href="cartReady.html">Cart</a></li>
+            <li><a href="purchaseHome.html">Purchases</a></li>
+            <li><a href="productHome.html">Products</a></li>
+            <li><a href="storeHome.html">Stores</a></li>
+            <li><a href="storeMap.html">Store Map</a></li>
+            <li><a href="newIndex.html">Logout</a></li>
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="clientEdit">Client Profile</a></li>
+            <li><a href="cartReady.html">Cart</a></li>
+            <li><a href="purchaseHome.html">Purchases</a></li>
+            <li><a href="productHome.html">Products</a></li>
+            <li><a href="storeHome.html">Stores</a></li>
+            <li><a href="storeMap.html">Store Map</a></li>
+            <li><a href="newIndex.html">Logout</a></li>
+        </ul>
+
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  
+
+
+
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <h1 class="header center orange-text">Shopping Cart</h1>
@@ -37,6 +48,7 @@
               <th data-field="name">Unidades</th>
               <th data-field="price">Precio Unitario</th>
               <th data-field="price">Precio Total</th>
+              <th data-field="price">Quitar</th>
           </tr>
         </thead>
 
@@ -46,6 +58,7 @@
             <td><input type="number"/></td>
             <td>$800</td>
             <td>$800</td>
+            <td><a><i class="small material-icons">delete</i></a></td>
           </tr>
           <tr>
             <td>Pan</td>
@@ -72,14 +85,14 @@
 
 
   <div class="container">
-    
+
 
   </div>
 
   <footer class="page-footer orange">
 	  <div class="footer-copyright">
       <div class="container">
-      e-Ticket 
+      e-Ticket
       </div>
     </div>
   </footer>

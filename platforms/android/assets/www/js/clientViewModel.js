@@ -14,8 +14,8 @@ var ClientViewModel = function (){
 
 //Registra un usuario
 	self.save = function(){
-
-		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
+		var url = 'https://eticket.mespinozas.com/api/clients/';
+		//var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
 
 		$.ajax({
 
@@ -47,7 +47,8 @@ var ClientViewModel = function (){
 		//Guarda la password como una variable con componentes json
 		var jsonPass = '{"_password":'+'"'+password+'"'+'}';
 		//Busca al usuario por el mail
-		var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients/'+ email ;
+		//var url = 'https://etickettest-mespinozas.rhcloud.com/api/clients/'+ email ;
+		var url = 'https://eticket.mespinozas.com/api/clients/'+ email ;
 		$.ajax({
 
 			url:	url,

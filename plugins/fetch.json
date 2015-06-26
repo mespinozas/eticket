@@ -63,5 +63,25 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-twitter": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-twitter"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.phonegap.plugins.facebookconnect": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phonegap/phonegap-facebook-plugin",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "1131114050239115",
+            "APP_NAME": "eticket"
+        }
     }
 }

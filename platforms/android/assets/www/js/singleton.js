@@ -1,4 +1,4 @@
-var mySingleton = (function () {
+var myCart = (function () {
     // Instance stores a reference to the Singleton
     var instance;
     function init() {
@@ -8,6 +8,7 @@ var mySingleton = (function () {
             console.log( "I am private" );
         }
         var privateVariable = "Im also private";
+        var productList=
         var privateRandomNumber = Math.random();
         return {
         // Public methods and variables
@@ -34,6 +35,4 @@ var mySingleton = (function () {
 })();
 
 // Usage:
-var singleA = mySingleton.getInstance();
-var singleB = mySingleton.getInstance();
-console.log( singleA.getRandomNumber() === singleB.getRandomNumber() ); // true
+var singleA = myCart.getInstance();

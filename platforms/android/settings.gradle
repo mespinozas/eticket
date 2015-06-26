@@ -2,3 +2,4 @@
 include ":"
 include ":CordovaLib"
 include ":com.google.playservices:eticket-google-play-services_lib"
+include ":com.phonegap.plugins.facebookconnect:eticket-FacebookLib"

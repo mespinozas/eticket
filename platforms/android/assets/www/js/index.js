@@ -19,6 +19,8 @@
  //var ln = require('./ln');
 //window.addEventListener('push', checkPage);
 
+//var i18n = = require('./');
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -58,7 +60,8 @@ var app = {
             function (language) {alert('language: ' + language.value + '\n');},
             function () {alert('Error getting language\n');}
         );*/
-        //ln.init();
+        //ln.init()
+        /*
         var opts = {
             getAsync: true, lng: "es", fallbackLng: 'en'
         };
@@ -68,7 +71,7 @@ var app = {
             var x = $.t("login.register");
         });
         //$("#login").i18n();
-        $("#register").i18n();
+        $("#register").i18n();*/
     }
 };
 

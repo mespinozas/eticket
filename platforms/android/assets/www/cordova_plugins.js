@@ -75,6 +75,20 @@ module.exports = [
         "clobbers": [
             "Connection"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-twitter/www/TwitterPlugin.js",
+        "id": "cordova-plugin-twitter.TwitterPlugin",
+        "clobbers": [
+            "Twitter"
+        ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js",
+        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -87,6 +101,8 @@ module.exports.metadata =
     "cordova-plugin-geolocation": "1.0.0",
     "nl.x-services.plugins.googleplus": "1.1.2",
     "cordova-plugin-network-information": "1.0.1",
+    "cordova-plugin-twitter": "0.6.0",
+    "com.phonegap.plugins.facebookconnect": "0.11.0",
     "com.google.playservices": "21.0.1"
 }
 // BOTTOM OF METADATA
