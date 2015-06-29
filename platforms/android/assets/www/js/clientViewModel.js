@@ -14,7 +14,7 @@ var ClientViewModel = function (){
 
 //Registra un usuario
 	self.save = function(){
-		var url = 'https://eticket.mespinozas.com/api/clients/';
+		var url = 'https://eticket.mespinozas.com/api/clients';
 		//var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
 
 		$.ajax({

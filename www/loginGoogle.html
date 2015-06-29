@@ -42,20 +42,21 @@
         </div>
 
         <div class="container">
-        	<img id="image" style="position:absolute; top:100px; left:100px" src="" />
+        	<img id="image" style="top:100px; left:100px" src="" />
             <p class="event listening">Connecting to Device</p>
             <p class="event received">Device is Ready</p>
 
             <p id="feedback">not logged in</p>
-            <button onclick="isAvailable()">Available?</button>
+            <!--button onclick="isAvailable()">Available?</button-->
+            <a class="waves-effect waves-light btn" onclick="isAvailable()">Servicio disponible</a>
             <br/>
-            <button onclick="login()">Login with Google+</button>
+            <a class="waves-effect waves-light btn red" onclick="login()">Login con Google+</a>
             <br/>
-            <button onclick="trySilentLogin()">Try silent login with Google+</button>
+            <a class="waves-effect waves-light btn orange"  onclick="trySilentLogin()">Silent login con Google+</a>
             <br/>
-            <button onclick="logout()">Logout</button>
+            <a class="waves-effect waves-light btn black"  onclick="logout()">Logout</a>
             <br/>
-            <button onclick="disconnect()">Disconnect</button>
+            <a class="waves-effect waves-light btn yellow"  onclick="disconnect()">Desconectar</a>
 
         </div>
 
@@ -71,7 +72,6 @@
          <script src="cordova.js"></script>
          <script src="js/jquery-2.1.3.min.js"></script>
          <script src="js/materialize.js"></script>
-         <script src="js/map.js"></script>
          <script type="text/javascript">
              //app.initialize();
              function isAvailable() {
