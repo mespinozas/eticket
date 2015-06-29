@@ -1,16 +1,53 @@
 'use strict';
 
+ko.extenders.defaultIfNull = function(target, defaultValue) {
+    var result = ko.computed({
+        read: target,
+        write: function(newValue) {
+            if (!newValue) {
+                target(defaultValue);
+            } else {
+                target(newValue);
+            }
+        }
+    });
+
+    result(target());
+    return result;
+};
+
+function addressValueViewModel(data) {
+    var self = this;
+    self._line1 = ko.observable(data._line1);
+    self._line2 = ko.observable(data._line2);
+    self._county = ko.observable(data._county);
+	self._city = ko.observable(data._city);
+	self._region = ko.observable(data._region);
+}
 
 var ClientViewModel = function (){
 
 	var self = this;
 
 	self._name = ko.observable();
-	self._lname1 = ko.observable();
-	self._lname2 = ko.observable();
+	self._firstLastname = ko.observable();
+	self._secondLastname = ko.observable();
 	self._phone = ko.observable();
 	self._mail = ko.observable();
 	self._password = ko.observable();
+
+	self._address = ko.observableArray([]);
+
+	// new properties
+	self.loginAttempt = ko.observable();
+	self.lockUntil = ko.observable();
+
+	self.addAddressList = function(list) {
+        ko.utils.arrayForEach(list, function(item) {
+            self._address.push(new addressValueViewModel(item));
+        });
+    }
+
 
 //Registra un usuario
 	self.save = function(){
@@ -18,21 +55,20 @@ var ClientViewModel = function (){
 		//var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
 
 		$.ajax({
-
-			  url: 	url,
-			  type: 	'POST',
-			  data: ko.toJSON(self),
-			  datatype: "json",
-        processData: false,
-        contentType: "application/json; charset=utf-8",
-			  success: function(data){
+			url: 	url,
+			type: 	'POST',
+			contentType: "application/json",
+			data: ko.toJSON(self),
+			datatype: "json",
+        	processData: false,
+        	success: function(data){
 					//Si se crea el usuario vuelve a la página de inicio
 					alert('Client registration successful');
 					$("#accountCreated")[0].submit(function(e){
 						e.preventDefault();
 					});
 			  },
-			  error:function(jqXHR, textStatus, errorThrown){
+			error:function(jqXHR, textStatus, errorThrown){
 			     alert(errorThrown);
         }
 		});

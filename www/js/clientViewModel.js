@@ -1,5 +1,29 @@
 'use strict';
 
+ko.extenders.defaultIfNull = function(target, defaultValue) {
+    var result = ko.computed({
+        read: target,
+        write: function(newValue) {
+            if (!newValue) {
+                target(defaultValue);
+            } else {
+                target(newValue);
+            }
+        }
+    });
+
+    result(target());
+    return result;
+};
+
+function addressValueViewModel(data) {
+    var self = this;
+    self._line1 = ko.observable(data._line1);
+    self._line2 = ko.observable(data._line2);
+    self._county = ko.observable(data._county);
+	self._city = ko.observable(data._city);
+	self._region = ko.observable(data._region);
+}
 
 var ClientViewModel = function (){
 
@@ -12,17 +36,17 @@ var ClientViewModel = function (){
 	self._mail = ko.observable();
 	self._password = ko.observable();
 
-	self._address: ko.observableArray({
-		_line1: {type: String, required:true},
-		_line2: {type: String, required:false},
-		_county: {type: String, required:true},
-		_city: {type: String, required:true},
-		_region: {type: String, required:true}
-	});
+	self._address = ko.observableArray([]);
 
 	// new properties
 	self.loginAttempt = ko.observable();
 	self.lockUntil = ko.observable();
+
+	self.addAddressList = function(list) {
+        ko.utils.arrayForEach(list, function(item) {
+            self._address.push(new addressValueViewModel(item));
+        });
+    }
 
 
 //Registra un usuario
