@@ -63,6 +63,14 @@
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Sharedpreferences\"><param name=\"android-package\" value=\"in.edelworks.sharedpreferences.Sharedpreferences\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -668,6 +676,12 @@
             "PACKAGE_NAME": "com.espinozafariasherrera.eticket"
         },
         "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.espinozafariasherrera.eticket"
+        },
+        "in.edelworks.sharedpreferences": {
+            "PACKAGE_NAME": "com.espinozafariasherrera.eticket"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.espinozafariasherrera.eticket"
         }
     },

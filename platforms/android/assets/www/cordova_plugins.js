@@ -97,6 +97,20 @@ module.exports = [
             "cordova.InAppBrowser.open",
             "window.open"
         ]
+    },
+    {
+        "file": "plugins/in.edelworks.sharedpreferences/www/sharedpreferences.js",
+        "id": "in.edelworks.sharedpreferences.SharedPreferences",
+        "clobbers": [
+            "sharedpreferences"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
+        "clobbers": [
+            "device"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -112,6 +126,8 @@ module.exports.metadata =
     "cordova-plugin-twitter": "0.6.0",
     "com.phonegap.plugins.facebookconnect": "0.11.0",
     "cordova-plugin-inappbrowser": "1.0.1",
+    "in.edelworks.sharedpreferences": "0.1.0",
+    "cordova-plugin-device": "1.0.1",
     "com.google.playservices": "21.0.1"
 }
 // BOTTOM OF METADATA

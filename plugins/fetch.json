@@ -91,5 +91,22 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "in.edelworks.sharedpreferences": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/edelworksgithub/SharedPreferences.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-device": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
