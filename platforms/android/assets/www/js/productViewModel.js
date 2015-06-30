@@ -41,12 +41,22 @@ ko.extenders.defaultIfNull = function(target, defaultValue) {
     return result;
 };
 
+function tagValueViewModel(data) {
+    var self = this;
+    self._line1 = ko.observable(data._line1);
+    self._line2 = ko.observable(data._line2);
+    self._county = ko.observable(data._county);
+	self._city = ko.observable(data._city);
+	self._region = ko.observable(data._region);
+}
+
 var ProductViewModel = function(){
  	var self = this;
 
 	self._name = ko.observable().extend({ defaultIfNull: "" });
 	self._price = ko.observable().extend({ defaultIfNull: "" });
 	self._code = ko.observable().extend({ defaultIfNull: "" });
+	self._tags = ko.observableArray([]);
 	self._productList = ko.observableArray();
 	self._id = ko.observable().extend({ defaultIfNull: "" });
 
@@ -100,6 +110,8 @@ var ProductViewModel = function(){
         contentType: 'application/json; charset=utf-8',
         success: function(data){
 			console.log(data);
+			this=ko.toJSON(data);
+			alert(this._id);
 			resultName.value=data._name;
 			resultCode.value=data._code;
 			resultPrice.value=data._price;
