@@ -28,13 +28,13 @@ function addressValueViewModel(data) {
 var ClientViewModel = function (){
 
 	var self = this;
-    self._id = ko.observable();
-	self._name = ko.observable();
-	self._firstLastname = ko.observable();
-	self._secondLastname = ko.observable();
-	self._phone = ko.observable();
-	self._mail = ko.observable();
-	self._password = ko.observable();
+    self._id = ko.observable().extend({ defaultIfNull: "" });
+	self._name = ko.observable().extend({ defaultIfNull: "" });
+	self._firstLastname = ko.observable().extend({ defaultIfNull: "" });
+	self._secondLastname = ko.observable().extend({ defaultIfNull: "" });
+	self._phone = ko.observable().extend({ defaultIfNull: "" });
+	self._mail = ko.observable().extend({ defaultIfNull: "" });
+	self._password = ko.observable().extend({ defaultIfNull: "" });
 
 	self._address = ko.observableArray([]);
 
@@ -49,10 +49,9 @@ var ClientViewModel = function (){
     }
 
 
-//Registra un usuario
+    //User  Register
 	self.save = function(){
 		var url = 'https://eticket.mespinozas.com/api/clients';
-		//var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
 
 		$.ajax({
 			url: 	url,
@@ -75,8 +74,8 @@ var ClientViewModel = function (){
     		//alert('hello');
   	};
 
-		//Iniciar sesión
-	self.startSesion = function() {
+	//User start Session
+	self.startSession = function() {
 		//Guarda los datos que escribe el usuario en variables
 		var email = document.getElementById("mail").value;
 		var password = document.getElementById("pass").value;
