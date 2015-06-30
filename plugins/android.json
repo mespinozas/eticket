@@ -59,6 +59,10 @@
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -661,6 +665,9 @@
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "1131114050239115",
             "APP_NAME": "eticket",
+            "PACKAGE_NAME": "com.espinozafariasherrera.eticket"
+        },
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.espinozafariasherrera.eticket"
         }
     },

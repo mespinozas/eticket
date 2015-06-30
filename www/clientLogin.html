@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://etickettest-mespinozas.rhcloud.com/api/clients/ ;media-src *">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="css/ratchet.css" rel="stylesheet">
+        <title>e-Ticket</title>
+    </head>
+
+	<body id="main-wrapper">
+        <header class="bar bar-nav">
+            <a class="icon icon-left-nav pull-left" href="index.html"></a>
+            <h1 class="title">Client Login</h1>
+        </header>
+        <div class="content" id="clientViewModel">
+            <div class="card">
+                <form id="loginOk" action="home.html" method="post">
+                    <div class="input-row">
+                        <label>Mail</label>
+                        <input id="mail" placeholder="mail@example.com" type="email" data-bind="value: _mail" required="required"/>
+                    </div>
+                    <div class="input-row">
+                        <label>Password</label>
+                        <input id="pass" placeholder="password" type="password" data-bind="value: _password" required="required" pattern="^.{6,}"/>
+                    </div>
+                    <button class="btn btn-primary" type="submit" data-bind="click: startSesion" > Log in</button>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+    <script type="text/javascript" src="js/clientViewModel.js"></script>
+</html>

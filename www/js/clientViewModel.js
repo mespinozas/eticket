@@ -28,7 +28,7 @@ function addressValueViewModel(data) {
 var ClientViewModel = function (){
 
 	var self = this;
-
+    self._id = ko.observable();
 	self._name = ko.observable();
 	self._firstLastname = ko.observable();
 	self._secondLastname = ko.observable();
@@ -106,7 +106,6 @@ var ClientViewModel = function (){
 					alert("Wrong username-password combination");
 					//return false;
 				}
-
 			},
 			error:function(jqXHR, textStatus, errorThrown){
            alert(textStatus);
@@ -114,6 +113,30 @@ var ClientViewModel = function (){
 			}
 		});
 	};
+
+    self.edit = function(){
+		var url = 'https://eticket.mespinozas.com/api/clients/'+ _id ;
+		//var url = 'http://etickettest-mespinozas.rhcloud.com/api/clients';
+
+		$.ajax({
+			url: 	url,
+			type: 	'PUT',
+			contentType: "application/json",
+			data: ko.toJSON(self),
+			datatype: "json",
+        	processData: false,
+        	success: function(data){
+				//Si se crea el usuario vuelve a la página de inicio
+				alert('Client registration successful');
+				$("#accountCreated")[0].submit(function(e){
+					e.preventDefault();
+				});
+            },
+			error:function(jqXHR, textStatus, errorThrown){
+                alert(errorThrown);
+            }
+		});
+  	};
 };
 
 var vm = new ClientViewModel();

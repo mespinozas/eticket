@@ -83,5 +83,13 @@
             "APP_ID": "1131114050239115",
             "APP_NAME": "eticket"
         }
+    },
+    "cordova-plugin-inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
