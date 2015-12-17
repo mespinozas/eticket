@@ -39,6 +39,78 @@ module.exports = [
         "clobbers": [
             "CameraPopoverHandle"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
+        "id": "cordova-plugin-globalization.GlobalizationError",
+        "clobbers": [
+            "window.GlobalizationError"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-globalization/www/globalization.js",
+        "id": "cordova-plugin-globalization.globalization",
+        "clobbers": [
+            "navigator.globalization"
+        ]
+    },
+    {
+        "file": "plugins/nl.x-services.plugins.googleplus/www/GooglePlus.js",
+        "id": "nl.x-services.plugins.googleplus.GooglePlus",
+        "clobbers": [
+            "window.plugins.googleplus"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/network.js",
+        "id": "cordova-plugin-network-information.network",
+        "clobbers": [
+            "navigator.connection",
+            "navigator.network.connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+        "id": "cordova-plugin-network-information.Connection",
+        "clobbers": [
+            "Connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-twitter/www/TwitterPlugin.js",
+        "id": "cordova-plugin-twitter.TwitterPlugin",
+        "clobbers": [
+            "Twitter"
+        ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js",
+        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
+    },
+    {
+        "file": "plugins/in.edelworks.sharedpreferences/www/sharedpreferences.js",
+        "id": "in.edelworks.sharedpreferences.SharedPreferences",
+        "clobbers": [
+            "sharedpreferences"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
+        "clobbers": [
+            "device"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -46,7 +118,17 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.0.1-dev",
     "com.phonegap.plugins.barcodescanner": "2.0.1",
-    "org.apache.cordova.camera": "0.3.6"
+    "org.apache.cordova.camera": "0.3.6",
+    "cordova-plugin-globalization": "1.0.0",
+    "cordova-plugin-geolocation": "1.0.0",
+    "nl.x-services.plugins.googleplus": "1.1.2",
+    "cordova-plugin-network-information": "1.0.1",
+    "cordova-plugin-twitter": "0.6.0",
+    "com.phonegap.plugins.facebookconnect": "0.11.0",
+    "cordova-plugin-inappbrowser": "1.0.1",
+    "in.edelworks.sharedpreferences": "0.1.0",
+    "cordova-plugin-device": "1.0.1",
+    "com.google.playservices": "21.0.1"
 }
 // BOTTOM OF METADATA
 });

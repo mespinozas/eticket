@@ -22,5 +22,91 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-globalization": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-globalization"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-geolocation": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-geolocation"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "nl.x-services.plugins.googleplus": {
+        "source": {
+            "type": "registry",
+            "id": "nl.x-services.plugins.googleplus"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.google.playservices": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/MobileChromeApps/google-play-services",
+            "subdir": "."
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-network-information": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-network-information"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-twitter": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-twitter"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.phonegap.plugins.facebookconnect": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phonegap/phonegap-facebook-plugin",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "1131114050239115",
+            "APP_NAME": "eticket"
+        }
+    },
+    "cordova-plugin-inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "in.edelworks.sharedpreferences": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/edelworksgithub/SharedPreferences.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-device": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
